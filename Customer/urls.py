@@ -15,4 +15,12 @@ urlpatterns = [
     path("searchproducts", searchproducts, name="searchproducts"),
     path("productdetails/<int:id>", productdetails, name="productdetails"),
     path("saveProductToCart", saveProductToCart, name="saveProductToCart"),
+    path("contact_us", contact_us, name="contact_us"),
+    path("about_us", about_us, name="about_us"),
+    path("wishlist", wishlist, name="wishlist"),
+    path("checkout", checkout, name="checkout"),
+    path("shopping_cart", shopping_cart, name="shopping_cart"),
+
+
+
 ]
