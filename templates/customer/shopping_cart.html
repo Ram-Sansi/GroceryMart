@@ -34,66 +34,81 @@
                                 <table class="table border">
                                     <thead>
                                     <tr>
-                                        <th class="plantmore-product-remove">Remove</th>
+
                                         <th class="plantmore-product-thumbnail">Images</th>
                                         <th class="cart-product-name">Product</th>
                                         <th class="plantmore-product-price">Unit Price</th>
                                         <th class="plantmore-product-quantity">Quantity</th>
-                                        <th class="plantmore-product-subtotal">Total</th>
+                                        <th class="plantmore-product-quantity">Total</th>
+                                        <th class="plantmore-product-remove">Remove</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <td class="plantmore-product-remove"><a href="#"><i
-                                                class="icon-rt-close-outline"></i></a></td>
-                                        <td class="plantmore-product-thumbnail"><a href="#"><img
-                                                src="assets/images/products/cart/cart-1.jpg" alt=""></a></td>
-                                        <td class="plantmore-product-name"><a href="#">Compete Track Tote</a></td>
-                                        <td class="plantmore-product-price"><span class="amount">$70.00</span></td>
-                                        <td class="plantmore-product-quantity">
-                                            <form action="#" class="cart-quantity d-flex">
-                                                <div class="quantity">
-                                                    <div class="cart-plus-minus justify-content-center">
-                                                        <input class="cart-plus-minus-box" value="1" type="text">
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </td>
-                                        <td class="product-subtotal"><span class="amount">$70.00</span></td>
+                                    {% for i in cart %}
+                                        <tr>
 
-                                    </tr>
-                                    <tr>
-                                        <td class="plantmore-product-remove"><a href="#"><i
-                                                class="icon-rt-close-outline"></i></a></td>
-                                        <td class="plantmore-product-thumbnail"><a href="#"><img
-                                                src="assets/images/products/cart/cart-2.jpg" alt=""></a></td>
-                                        <td class="plantmore-product-name"><a href="#">Vestibulum suscipit</a></td>
-                                        <td class="plantmore-product-price"><span class="amount">$60.50</span></td>
-                                        <td class="plantmore-product-quantity">
-                                            <div class="quantity">
-                                                <div class="cart-plus-minus justify-content-center">
-                                                    <input class="cart-plus-minus-box" value="1" type="text">
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="product-subtotal"><span class="amount">$60.50</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="plantmore-product-remove"><a href="#"><i
-                                                class="icon-rt-close-outline"></i></a></td>
-                                        <td class="plantmore-product-thumbnail"><a href="#"><img
-                                                src="assets/images/products/cart/cart-3.jpg" alt=""></a></td>
-                                        <td class="plantmore-product-name"><a href="#">suscip dictum magna</a></td>
-                                        <td class="plantmore-product-price"><span class="amount">$40.50</span></td>
-                                        <td class="plantmore-product-quantity">
-                                            <div class="quantity">
-                                                <div class="cart-plus-minus justify-content-center">
-                                                    <input class="cart-plus-minus-box" value="1" type="text">
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="product-subtotal"><span class="amount">$40.50</span></td>
-                                    </tr>
+                                            <td><img src="/static/media/{{ i.product.image }}" width="100"></td>
+                                            <td>{{ i.product.name }}</td>
+                                            <td>{{ i.product.price }}</td>
+                                            <td>
+                                                <form action="/changecart_quantity/{{ i.id }}" method="post">
+                                                    {% csrf_token %}
+                                                    <div class="quantity">
+                                                        <button type="button" class="btn btn-outline-secondary"
+                                                                onclick="decreaseCartValue({{ i.id }})">
+                                                            <b> - </b>
+                                                        </button>
+                                                        <input class="cart-plus-minus-box"
+                                                               id="changeCartQuantityInput-{{ i.id }}"
+                                                               type="text" value="{{ i.quantity|floatformat }}"
+                                                               name="quantity">
+                                                        <button type="button" class="btn btn-outline-secondary"
+                                                                onclick="increaseCartValue({{ i.id }})">
+                                                            <b> + </b>
+                                                        </button>
+                                                    </div>
+                                                </form>
+                                            </td>
+                                            <td>{{ i.total_price }}</td>
+
+                                            <td><a href="delete_cart/{{ i.id }}"><i class="icon-rt-close-outline"></i>
+                                            </a></td>
+                                        </tr>
+                                    {% endfor %}
+
+
+                                    {#                                    <tr>#}
+                                    {#                                        <td class="plantmore-product-remove"><a href="#"><i#}
+                                    {#                                                class="icon-rt-close-outline"></i></a></td>#}
+                                    {#                                        <td class="plantmore-product-thumbnail"><a href="#"><img#}
+                                    {#                                                src="assets/images/products/cart/cart-2.jpg" alt=""></a></td>#}
+                                    {#                                        <td class="plantmore-product-name"><a href="#">Vestibulum suscipit</a></td>#}
+                                    {#                                        <td class="plantmore-product-price"><span class="amount">$60.50</span></td>#}
+                                    {#                                        <td class="plantmore-product-quantity">#}
+                                    {#                                            <div class="quantity">#}
+                                    {#                                                <div class="cart-plus-minus justify-content-center">#}
+                                    {#                                                    <input class="cart-plus-minus-box" value="1" type="text">#}
+                                    {#                                                </div>#}
+                                    {#                                            </div>#}
+                                    {#                                        </td>#}
+                                    {#                                        <td class="product-subtotal"><span class="amount">$60.50</span></td>#}
+                                    {#                                    </tr>#}
+                                    {#                                    <tr>#}
+                                    {#                                        <td class="plantmore-product-remove"><a href="#"><i#}
+                                    {#                                                class="icon-rt-close-outline"></i></a></td>#}
+                                    {#                                        <td class="plantmore-product-thumbnail"><a href="#"><img#}
+                                    {#                                                src="assets/images/products/cart/cart-3.jpg" alt=""></a></td>#}
+                                    {#                                        <td class="plantmore-product-name"><a href="#">suscip dictum magna</a></td>#}
+                                    {#                                        <td class="plantmore-product-price"><span class="amount">$40.50</span></td>#}
+                                    {#                                        <td class="plantmore-product-quantity">#}
+                                    {#                                            <div class="quantity">#}
+                                    {#                                                <div class="cart-plus-minus justify-content-center">#}
+                                    {#                                                    <input class="cart-plus-minus-box" value="1" type="text">#}
+                                    {#                                                </div>#}
+                                    {#                                            </div>#}
+                                    {#                                        </td>#}
+                                    {#                                        <td class="product-subtotal"><span class="amount">$40.50</span></td>#}
+                                    {#                                    </tr>#}
                                     </tbody>
                                 </table>
                             </div>
@@ -122,11 +137,12 @@
                                     <div class="cart-page-total mt-4">
                                         <h2 class="fw-bold mb-3">Cart totals</h2>
                                         <ul>
-                                            <li>Subtotal <span>$170.00</span></li>
-                                            <li>Total <span>$170.00</span></li>
+                                            <li>Subtotal <span>{{ total }}</span></li>
+                                            <li>Total <span>{{ total }}</span></li>
                                         </ul>
                                         <div class="button-box mt-3 text-end">
-                                            <a href="#" class="proceed-checkout-btn btn btn--primary w-full">Proceed to
+                                            <a href="/Customer/checkout"
+                                               class="proceed-checkout-btn btn btn--primary w-full">Proceed to
                                                 checkout</a>
                                         </div>
                                     </div>
@@ -233,6 +249,39 @@
         <!-- Our Feature Section End -->
 
     </main>
+    <script>
+        const submitChangeCartValue = (id) => {
+            let qty = document.getElementById(`changeCartQuantityInput-${id}`).value;
+            var formdata = new FormData;
+            formdata.append('quantity', qty);
+            fetch(`changecart_quantity/${id}`, {
+                'method': 'POST',
+                'body': formdata
+            }).then(resp => resp.text()).then(res => {
+                if (res === 'success') {
+                    window.location.reload()
+                }
+            })
+
+        }
+
+        const increaseCartValue = (id) => {
+            let qty = parseInt(document.getElementById(`changeCartQuantityInput-${id}`).value)
+            qty = qty + 1
+            document.getElementById(`changeCartQuantityInput-${id}`).value = qty
+            submitChangeCartValue(id)
+        }
+
+        const decreaseCartValue = (id) => {
+            let qty = parseInt(document.getElementById(`changeCartQuantityInput-${id}`).value)
+            if (qty > 1) {
+
+                qty = qty - 1
+                document.getElementById(`changeCartQuantityInput-${id}`).value = qty
+                submitChangeCartValue(id)
+            }
+        }
+    </script>
 {% endblock %}
 
 

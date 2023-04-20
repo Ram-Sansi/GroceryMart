@@ -33,37 +33,37 @@
                             <div class="product-details-images slider-lg-image-1">
                                 <div class="lg-image img-zoom">
                                     <a href="/productdetails" class="img-poppu"><img
-                                            src="{% static 'assets/images/products/details/lg-1.jpg' %}" alt="product image"></a>
+                                            src="/static/media/{{ obj.image }}" alt="product image"></a>
                                 </div>
-                                <div class="lg-image img-zoom">
-                                    <a href="assets/images/products/large/lg-2.html" class="img-poppu"><img
-                                            src="assets/images/products/details/lg-2.jpg" alt="product image"></a>
-                                </div>
-                                <div class="lg-image img-zoom">
-                                    <a href="assets/images/products/large/lg-3.html" class="img-poppu"><img
-                                            src="assets/images/products/details/lg-3.jpg" alt="product image"></a>
-                                </div>
-                                <div class="lg-image img-zoom">
-                                    <a href="assets/images/products/large/lg-4.html" class="img-poppu"><img
-                                            src="assets/images/products/details/lg-4.jpg" alt="product image"></a>
-                                </div>
+                                {#                                <div class="lg-image img-zoom">#}
+                                {#                                    <a href="assets/images/products/large/lg-2.html" class="img-poppu"><img#}
+                                {#                                            src="assets/images/products/details/lg-2.jpg" alt="product image"></a>#}
+                                {#                                </div>#}
+                                {#                                <div class="lg-image img-zoom">#}
+                                {#                                    <a href="assets/images/products/large/lg-3.html" class="img-poppu"><img#}
+                                {#                                            src="assets/images/products/details/lg-3.jpg" alt="product image"></a>#}
+                                {#                                </div>#}
+                                {#                                <div class="lg-image img-zoom">#}
+                                {#                                    <a href="assets/images/products/large/lg-4.html" class="img-poppu"><img#}
+                                {#                                            src="assets/images/products/details/lg-4.jpg" alt="product image"></a>#}
+                                {#                                </div>#}
                             </div>
-                            <div class="product-details-thumbs slider-thumbs-1">
-                                <div class="sm-image"><img src="assets/images/products/details/sm-1.jpg"
-                                                           alt="product image thumb"></div>
-                                <div class="sm-image"><img src="assets/images/products/details/sm-2.jpg"
-                                                           alt="product image thumb"></div>
-                                <div class="sm-image"><img src="assets/images/products/details/sm-3.jpg"
-                                                           alt="product image thumb"></div>
-                                <div class="sm-image"><img src="assets/images/products/details/sm-4.jpg"
-                                                           alt="product image thumb"></div>
-                            </div>
+                            {#                            <div class="product-details-thumbs slider-thumbs-1">#}
+                            {#                                <div class="sm-image"><img src="assets/images/products/details/sm-1.jpg"#}
+                            {#                                                           alt="product image thumb"></div>#}
+                            {#                                <div class="sm-image"><img src="assets/images/products/details/sm-2.jpg"#}
+                            {#                                                           alt="product image thumb"></div>#}
+                            {#                                <div class="sm-image"><img src="assets/images/products/details/sm-3.jpg"#}
+                            {#                                                           alt="product image thumb"></div>#}
+                            {#                                <div class="sm-image"><img src="assets/images/products/details/sm-4.jpg"#}
+                            {#                                                           alt="product image thumb"></div>#}
+                            {#                            </div>#}
                         </div>
                         <!--// Product Details Left -->
                     </div>
                     <div class="col-md-6">
                         <div class="product-details-view-content">
-                            <h3 class="title">Single product One</h3>
+                            <h3 class="title">{{ obj.name }}</h3>
                             <div class="product-rating d-flex">
                                 <ul class="d-flex">
                                     <li><a href="#"><i class="icon-rt-star-solid select-star"></i></a></li>
@@ -74,30 +74,33 @@
                                 </ul>
                                 <a href="#" class="reting-count">(<span class="count">1</span> customer review)</a>
                             </div>
-                            <p class="product-details-view-desc">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                elit.
-                                Nam fringilla augue nec est tristique auctor.</p>
+                            <p class="product-details-view-desc">{{ obj.description }}</p>
                             <div class="price-box">
-                                <span class="new-price">$10.00</span>–
-                                <span class="old-price">$70.00</span>
+                                <span class="new-price"> &#8977 {{ obj.price }}</span>
+                                <span class="old-price"> &#8977 {{ obj.price }}</span>
+                                {#                                <span class="old-price">$70.00</span>#}
                             </div>
+                            <i class="font-monospace">after{{ obj.discount }} discount</i>
                             <div class="product-vareant">
-                                <div class="pa_size">
-                                    <label class="pa_size_label">Size</label>
-                                    <span class="packet-swatch-vareant active swatch-1-kg" data-value="1-kg">1Kg</span>
-                                    <span class="packet-swatch-vareant swatch-2-kg" data-value="100Gm">100Gm</span>
-                                    <span class="packet-swatch-vareant swatch-3-kg" data-value="200Gm">200Gm</span>
-                                    <span class="packet-swatch-vareant swatch-4-kg" data-value="500Gm">500Gm</span>
-                                </div>
+                                {#                                <div class="pa_size">#}
+                                {#                                    <label class="pa_size_label">Size</label>#}
+                                {#                                    <span class="packet-swatch-vareant active swatch-1-kg" data-value="1-kg">1Kg</span>#}
+                                {#                                    <span class="packet-swatch-vareant swatch-2-kg" data-value="100Gm">100Gm</span>#}
+                                {#                                    <span class="packet-swatch-vareant swatch-3-kg" data-value="200Gm">200Gm</span>#}
+                                {#                                    <span class="packet-swatch-vareant swatch-4-kg" data-value="500Gm">500Gm</span>#}
+                                {#                                </div>#}
                                 <div class="packet-swatch-vareant-price"></div>
                                 <div class="stock in-stock">737 in stock</div>
                             </div>
 
                             <div class="single-add-to-cart">
-                                <form action="#" class="cart-quantity d-flex">
+                                <form action="/Customer/add_to_cart" method="post" class="cart-quantity d-flex">
+                                    {% csrf_token %}
+                                    <input type="text" id="productID"  name="productID" value="{{ obj.id }}" readonly
+                                           style="display: none">
                                     <div class="quantity">
                                         <div class="cart-plus-minus">
-                                            <input class="cart-plus-minus-box" value="1" type="text">
+                                            <input name="quantity" class="cart-plus-minus-box" value="1" type="text">
                                         </div>
                                     </div>
                                     <button class="add-to-cart btn btn--primary md:px-5" type="submit">Add To Cart
@@ -115,24 +118,24 @@
                                 </div>
                                 <div class="posted_in">
                                     <span>Categories: </span>
-                                    <a href="#">Applesauce</a>
-                                    <a href="#">Beef</a>
-                                    <a href="#">Beverages</a>
-                                    <a href="#">Frozen Desserts</a>
-                                    <a href="#">Frozen Foods</a>
-                                    <a href="#">Frozen Potatoes</a>
-                                    <a href="#">Hot Dogs & Sausages</a>
-                                    <a href="#">Meats & Seafood</a>
-                                    <a href="#">Pantry</a>
-                                    <a href="#">Scones</a>
-                                    <a href="#">Shop</a>
-                                    <a href="#">Snacks</a>
-                                    <a href="#">Soft Drinks</a>
+                                    <a href="#">{{ cat.name }}</a>
+                                    {#                                    <a href="#">Beef</a>#}
+                                    {#                                    <a href="#">Beverages</a>#}
+                                    {#                                    <a href="#">Frozen Desserts</a>#}
+                                    {#                                    <a href="#">Frozen Foods</a>#}
+                                    {#                                    <a href="#">Frozen Potatoes</a>#}
+                                    {#                                    <a href="#">Hot Dogs & Sausages</a>#}
+                                    {#                                    <a href="#">Meats & Seafood</a>#}
+                                    {#                                    <a href="#">Pantry</a>#}
+                                    {#                                    <a href="#">Scones</a>#}
+                                    {#                                    <a href="#">Shop</a>#}
+                                    {#                                    <a href="#">Snacks</a>#}
+                                    {#                                    <a href="#">Soft Drinks</a>#}
                                 </div>
                                 <div class="tagged_as">
                                     <span>Tags: </span>
-                                    <a href="#">Juice</a>
-                                    <a href="#">Vegan</a>
+                                    <a href="#">{{ cat.name }}</a>
+                                    {#                                    <a href="#">Vegan</a>#}
                                 </div>
                             </div>
 

@@ -1,8 +1,11 @@
 from django.contrib import messages
 from django.shortcuts import *
 from django.views import View
+from django.views.decorators.csrf import csrf_exempt
+
 from .models import *
 from Merchant.models import *
+from Customer.models import *
 
 
 # Create your views here.
@@ -28,21 +31,21 @@ def add_user(request):
 
 
 def login(request):
-        email = request.POST['email']
-        password = request.POST['password']
-        userlogin = Client.objects.filter(email=email, password=password)
-        if len(userlogin) == 0:
-            messages.warning(request, "Invalid Username Or Password")
-        else:
-            messages.success(request, "Login Successful!")
-            d = {
-                'id': userlogin[0].id,
-                'email': email,
-                'name': userlogin[0].name,
-                'mobile': userlogin[0].mobile
-            }
-            request.session['user'] = d
-        return redirect('user_login')
+    email = request.POST['email']
+    password = request.POST['password']
+    userlogin = Client.objects.filter(email=email, password=password)
+    if len(userlogin) == 0:
+        messages.warning(request, "Invalid Username Or Password")
+    else:
+        messages.success(request, "Login Successful!")
+        d = {
+            'id': userlogin[0].id,
+            'email': email,
+            'name': userlogin[0].name,
+            'mobile': userlogin[0].mobile
+        }
+        request.session['user'] = d
+    return redirect('user_login')
 
 
 def user_logout(request):
@@ -96,3 +99,49 @@ def saveProductToCart(request):
     cartobj.save()
 
     return render(request, 'customer/shopping_cart.html')
+
+
+def contact_us(request):
+    return render(request, 'customer/contact_us.html')
+
+
+def about_us(request):
+    return render(request, 'customer/about_us.html')
+
+
+def wishlist(request):
+    return render(request, 'customer/wishlist.html')
+
+
+def checkout(request):
+    return render(request, 'customer/checkout.html')
+
+
+def shopping_cart(request):
+    return render(request, 'customer/shopping_cart.html')
+
+
+def add_to_cart(request):
+    cart = Cart.objects.filter(client_id=request.session['user']['id'])
+    total = 0
+    for items in cart:
+        total += float(items.total_price)
+    return render(request, 'customer/shopping_cart.html', {'cart': cart, 'total': total})
+
+
+@csrf_exempt
+def changecart_quantity(request, id):
+    New_quantity = float(request.POST["quantity"])
+    cartobj = Cart.objects.get(id=id)
+    cartobj.quantity = float(New_quantity)
+    ppi = cartobj.Products.price
+
+    cartobj.total_price = New_quantity * ppi
+    cartobj.save()
+    return HttpResponse('success')
+
+
+def delete_cart(request, id):
+    prod = Cart.objects.get(id=id)
+    prod.delete()
+    return redirect('add_to_cart')

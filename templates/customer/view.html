@@ -34,7 +34,7 @@
                             <ul class="product-categorie">
                                 {% for i in cat %}
                                     <li class="product-categorie-item"><a
-                                            href="/viewProductByCategory/{{ i.id }}">{{ i.name }}</a></li>
+                                            href="/Customer/viewProductByCategory/{{ i.id }}">{{ i.name }}</a></li>
 
                                 {% endfor %}
 
@@ -222,14 +222,14 @@
                                     <!-- Single Item Start -->
                                     <div class="single-product-item">
                                         <div class="single-product-item-image">
-                                            <a href="/productdetails/{{ i.id }}" class="prodcut-images">
+                                            <a href="/Customer/productdetails/{{ i.id }}" class="prodcut-images">
                                                 <img class="primary-image"
                                                      src="/static/media/{{ i.image }}" alt="">
 
                                             </a>
                                             <ul class="single-product-item-action">
                                                 <li class="single-product-item-action-list product-cart">
-                                                    <a href="/productdetails/{{ i.id }}"
+                                                    <a href="/Customer/productdetails/{{ i.id }}"
                                                        class="single-product-item-action-link"><i
                                                             class="icon-rt-basket-outline"></i></a>
                                                 </li>
