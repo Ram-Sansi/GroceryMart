@@ -1,0 +1,678 @@
+{% extends 'customer/themelayout.html' %}
+{% load static %}
+
+{% block customercontent %}
+
+
+    <main>
+        <!-- Breadcrumb Start -->
+        <section class="breadcrumb-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="breadcrumb-content">
+                            <h1 class="page-title">Single Product</h1>
+                            <ul class="breadcrumb-page-list">
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item">Single Product</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Breadcrumb End -->
+
+        <!-- Page Section Content Start -->
+        <section class="product-details-secton section-space-pt">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <!-- Product Details Left -->
+                        <div class="product-details-left">
+                            <div class="product-details-images slider-lg-image-1">
+                                <div class="lg-image img-zoom">
+                                    <a href="/productdetails" class="img-poppu"><img
+                                            src="{% static 'assets/images/products/details/lg-1.jpg' %}" alt="product image"></a>
+                                </div>
+                                <div class="lg-image img-zoom">
+                                    <a href="assets/images/products/large/lg-2.html" class="img-poppu"><img
+                                            src="assets/images/products/details/lg-2.jpg" alt="product image"></a>
+                                </div>
+                                <div class="lg-image img-zoom">
+                                    <a href="assets/images/products/large/lg-3.html" class="img-poppu"><img
+                                            src="assets/images/products/details/lg-3.jpg" alt="product image"></a>
+                                </div>
+                                <div class="lg-image img-zoom">
+                                    <a href="assets/images/products/large/lg-4.html" class="img-poppu"><img
+                                            src="assets/images/products/details/lg-4.jpg" alt="product image"></a>
+                                </div>
+                            </div>
+                            <div class="product-details-thumbs slider-thumbs-1">
+                                <div class="sm-image"><img src="assets/images/products/details/sm-1.jpg"
+                                                           alt="product image thumb"></div>
+                                <div class="sm-image"><img src="assets/images/products/details/sm-2.jpg"
+                                                           alt="product image thumb"></div>
+                                <div class="sm-image"><img src="assets/images/products/details/sm-3.jpg"
+                                                           alt="product image thumb"></div>
+                                <div class="sm-image"><img src="assets/images/products/details/sm-4.jpg"
+                                                           alt="product image thumb"></div>
+                            </div>
+                        </div>
+                        <!--// Product Details Left -->
+                    </div>
+                    <div class="col-md-6">
+                        <div class="product-details-view-content">
+                            <h3 class="title">Single product One</h3>
+                            <div class="product-rating d-flex">
+                                <ul class="d-flex">
+                                    <li><a href="#"><i class="icon-rt-star-solid select-star"></i></a></li>
+                                    <li><a href="#"><i class="icon-rt-star-solid select-star"></i></a></li>
+                                    <li><a href="#"><i class="icon-rt-star-solid select-star"></i></a></li>
+                                    <li><a href="#"><i class="icon-rt-star-solid select-star"></i></a></li>
+                                    <li><a href="#"><i class="icon-rt-star-solid"></i></a></li>
+                                </ul>
+                                <a href="#" class="reting-count">(<span class="count">1</span> customer review)</a>
+                            </div>
+                            <p class="product-details-view-desc">Lorem ipsum dolor sit amet, consectetur adipiscing
+                                elit.
+                                Nam fringilla augue nec est tristique auctor.</p>
+                            <div class="price-box">
+                                <span class="new-price">$10.00</span>–
+                                <span class="old-price">$70.00</span>
+                            </div>
+                            <div class="product-vareant">
+                                <div class="pa_size">
+                                    <label class="pa_size_label">Size</label>
+                                    <span class="packet-swatch-vareant active swatch-1-kg" data-value="1-kg">1Kg</span>
+                                    <span class="packet-swatch-vareant swatch-2-kg" data-value="100Gm">100Gm</span>
+                                    <span class="packet-swatch-vareant swatch-3-kg" data-value="200Gm">200Gm</span>
+                                    <span class="packet-swatch-vareant swatch-4-kg" data-value="500Gm">500Gm</span>
+                                </div>
+                                <div class="packet-swatch-vareant-price"></div>
+                                <div class="stock in-stock">737 in stock</div>
+                            </div>
+
+                            <div class="single-add-to-cart">
+                                <form action="#" class="cart-quantity d-flex">
+                                    <div class="quantity">
+                                        <div class="cart-plus-minus">
+                                            <input class="cart-plus-minus-box" value="1" type="text">
+                                        </div>
+                                    </div>
+                                    <button class="add-to-cart btn btn--primary md:px-5" type="submit">Add To Cart
+                                    </button>
+                                </form>
+                            </div>
+                            <div class="add-to-wishlist">
+                                <a href="wishlist.html" class="add_to_wishlist"><i class="icon-rt-heart2"></i> Add to
+                                    Wishlist</a>
+                            </div>
+
+                            <div class="product-meta">
+                                <div class="sku_wrapper">
+                                    SKU: <span class="sku">N/A</span>
+                                </div>
+                                <div class="posted_in">
+                                    <span>Categories: </span>
+                                    <a href="#">Applesauce</a>
+                                    <a href="#">Beef</a>
+                                    <a href="#">Beverages</a>
+                                    <a href="#">Frozen Desserts</a>
+                                    <a href="#">Frozen Foods</a>
+                                    <a href="#">Frozen Potatoes</a>
+                                    <a href="#">Hot Dogs & Sausages</a>
+                                    <a href="#">Meats & Seafood</a>
+                                    <a href="#">Pantry</a>
+                                    <a href="#">Scones</a>
+                                    <a href="#">Shop</a>
+                                    <a href="#">Snacks</a>
+                                    <a href="#">Soft Drinks</a>
+                                </div>
+                                <div class="tagged_as">
+                                    <span>Tags: </span>
+                                    <a href="#">Juice</a>
+                                    <a href="#">Vegan</a>
+                                </div>
+                            </div>
+
+                            <div class="share-product-socail-area">
+                                <p>Share:</p>
+                                <ul class="single-product-share">
+                                    <li><a href="#"><i class="icon-rt-4-facebook-f"></i></a></li>
+                                    <li><a href="#"><i class="icon-rt-logo-pinterest"></i></a></li>
+                                    <li><a href="#"><i class="icon-rt-logo-twitter"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-description-area section-pt">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="product-details-tab">
+                                <ul role="tablist" class="nav">
+                                    <li class="active" role="presentation">
+                                        <a data-bs-toggle="tab" role="tab" href="#description"
+                                           class="active">Description</a>
+                                    </li>
+                                    <li role="presentation">
+                                        <a data-bs-toggle="tab" role="tab" href="#additional-information">Additional
+                                            information</a>
+                                    </li>
+                                    <li role="presentation">
+                                        <a data-bs-toggle="tab" role="tab" href="#reviews">Reviews</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="product_details_tab_content tab-content">
+                                <!-- Start Single Content -->
+                                <div class="product_tab_content tab-pane active" id="description" role="tabpanel">
+                                    <div class="product_description_wrap  mt-30">
+                                        <div class="product_desc mb-30">
+                                            <h3 class="product_desc_title">Our Story</h3>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla
+                                                augue
+                                                nec est tristique auctor. Donec non est at libero vulputate rutrum.
+                                                Morbi
+                                                ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate
+                                                adipiscing cursus eu, suscipit id nulla.</p>
+                                            <p>There has to be a better way right? Yes there is!</p>
+                                            <p>Drying fruit is a simple preservation technique, which means no fruit is
+                                                wasted due to rot, and the farmers sell 100% of their harvest.</p>
+                                            <h3 class="product_desc_title">Our Products</h3>
+                                            <p>Pellentesque aliquet, sem eget laoreet ultrices, ipsum metus feugiat sem,
+                                                quis fermentum turpis eros eget velit. Donec ac tempus ante. Fusce
+                                                ultricies
+                                                massa massa. Fusce aliquam, purus eget sagittis vulputate, sapien libero
+                                                hendrerit est, sed commodo augue nisi non neque. Lorem ipsum dolor sit
+                                                amet,
+                                                consectetur adipiscing elit. Sed tempor, lorem et placerat vestibulum,
+                                                metus
+                                                nisi posuere nisl, in accumsan elit odio quis mi. Cras neque metus,
+                                                consequat et blandit et, luctus a nunc. Etiam gravida vehicula tellus,
+                                                in
+                                                imperdiet ligula euismod eget.</p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!-- End Single Content -->
+                                <!-- Start Single Content -->
+                                <div class="product_tab_content tab-pane" id="additional-information" role="tabpanel">
+                                    <div class="product_additional-information mt-30">
+                                        <table class="product-attributes_table">
+                                            <tbody>
+                                            <tr>
+                                                <th class="product-attributes-item__label">Size</th>
+                                                <td class="product-attributes-item__value">
+                                                    <p>1 Kg, 200g, 500g</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th class="product-attributes-item__label">Brand</th>
+                                                <td class="product-attributes-item__value">
+                                                    <p>Skinfood</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th class="product-attributes-item__label">Dietary & Lifestyle</th>
+                                                <td class="product-attributes-item__value">
+                                                    <p>Vegan</p>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <!-- End Single Content -->
+                                <!-- Start Single Content -->
+                                <div class="product_tab_content tab-pane" id="reviews" role="tabpanel">
+                                    <div class="review_address_inner mt-30">
+                                        <!-- Start Single Review -->
+                                        <div class="pro_review">
+                                            <div class="review_thumb">
+                                                <img alt="review images" src="assets/images/others/reviewer.jpg">
+                                            </div>
+                                            <div class="review_details">
+                                                <div class="review_info mb-10">
+                                                    <div class="single-product-item-rating">
+                                                        <i class="icon-rt-star-solid select-star"></i>
+                                                        <i class="icon-rt-star-solid select-star"></i>
+                                                        <i class="icon-rt-star-solid select-star"></i>
+                                                        <i class="icon-rt-star-solid select-star"></i>
+                                                        <i class="icon-rt-star-solid"></i>
+                                                    </div>
+                                                    <h5><span class="user-name">mix83</span> - <span
+                                                            class="comment-date"> November 19, 2022</span>
+                                                    </h5>
+
+                                                </div>
+                                                <p class="reviewer-text">Have bought several times. Great tasting keto
+                                                    Granola. Too expensive to use as a breakfast cereal but Great to add
+                                                    as
+                                                    a topping .</p>
+                                            </div>
+                                        </div>
+                                        <!-- End Single Review -->
+                                        <!-- Start Single Review -->
+                                        <div class="pro_review">
+                                            <div class="review_thumb">
+                                                <img alt="review images" src="assets/images/others/reviewer.jpg">
+                                            </div>
+                                            <div class="review_details">
+                                                <div class="review_info mb-10">
+                                                    <div class="single-product-item-rating">
+                                                        <i class="icon-rt-star-solid select-star"></i>
+                                                        <i class="icon-rt-star-solid select-star"></i>
+                                                        <i class="icon-rt-star-solid select-star"></i>
+                                                        <i class="icon-rt-star-solid select-star"></i>
+                                                        <i class="icon-rt-star-solid"></i>
+                                                    </div>
+                                                    <h5><span class="user-name">453swq </span> - <span
+                                                            class="comment-date"> November 12, 2022</span>
+                                                    </h5>
+
+                                                </div>
+                                                <p class="reviewer-text">Have bought several times. Great tasting keto
+                                                    Granola. Too expensive to use as a breakfast cereal but Great to add
+                                                    as
+                                                    a topping .</p>
+                                            </div>
+                                        </div>
+                                        <!-- End Single Review -->
+                                    </div>
+                                    <!-- Start RAting Area -->
+                                    <div class="rating_wrap mt-50">
+                                        <h5 class="rating-title-1">Add a review </h5>
+                                        <p>Your email address will not be published. Required fields are marked *</p>
+
+                                        <div class="rating_list d-flex gap-2 align-items-center">
+                                            <h6 class="rating-title-2">Your Rating</h6>
+                                            <div class="review_info mt-1">
+                                                <div class="single-product-item-rating  mb-0">
+                                                    <i class="icon-rt-star-solid"></i>
+                                                    <i class="icon-rt-star-solid"></i>
+                                                    <i class="icon-rt-star-solid"></i>
+                                                    <i class="icon-rt-star-solid"></i>
+                                                    <i class="icon-rt-star-solid"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End RAting Area -->
+                                    <div class="comments-area comments-reply-area">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <form action="#" class="comment-form-area">
+                                                    <div class="row comment-input">
+                                                        <div class="col-md-6 comment-form-author mt-3">
+                                                            <label>Name <span class="required">*</span></label>
+                                                            <input type="text" required="required" name="Name">
+                                                        </div>
+                                                        <div class="col-md-6 comment-form-email mt-3">
+                                                            <label>Email <span class="required">*</span></label>
+                                                            <input type="text" required="required" name="email">
+                                                        </div>
+                                                    </div>
+                                                    <div class="comment-form-comment mt-3">
+                                                        <label>Comment</label>
+                                                        <textarea class="comment-notes" required="required"></textarea>
+                                                    </div>
+                                                    <div class="comment-form-submit mt-3">
+                                                        <input type="submit" value="Submit" class="comment-submit">
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End Single Content -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Page Section Content End -->
+
+
+        <!-- Product Item Section Start -->
+        <section class="product-item-section section-space-pb pt-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 position-relative">
+                        <div class="section-title-wrap">
+                            <h2 class="section-title">
+                                Related Products
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-slider-active product-border-box">
+                    <div class="single-product-item">
+                        <div class="single-product-item-image">
+                            <a href="productdetails.html" class="prodcut-images">
+                                <img class="primary-image" src="assets/images/products/product-image-2-1.jpg" alt="">
+                                <img class="secondary-image" src="assets/images/products/product-image-2-2.jpg" alt="">
+                            </a>
+                            <ul class="single-product-item-action">
+                                <li class="single-product-item-action-list">
+                                    <a href="#" class="single-product-item-action-link"><i
+                                            class="icon-rt-heart2"></i></a>
+                                </li>
+                                <li class="single-product-item-action-list">
+                                    <a href="#" title="Quick View" data-bs-toggle="modal"
+                                       data-bs-target="#quick-view-modal"
+                                       class="single-product-item-action-link"><i class="icon-rt-eye2"></i></a>
+                                </li>
+                                <li class="single-product-item-action-list product-cart">
+                                    <a href="#" class="single-product-item-action-link"><i
+                                            class="icon-rt-basket-outline"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="single-product-item-content">
+                            <div class="single-product-item-rating">
+                                <i class="icon-rt-star-solid select-star"></i>
+                                <i class="icon-rt-star-solid select-star"></i>
+                                <i class="icon-rt-star-solid select-star"></i>
+                                <i class="icon-rt-star-solid select-star"></i>
+                                <i class="icon-rt-star-solid"></i>
+                            </div>
+                            <h6 class="single-product-item-title"><a href="productdetails.html">Dried mango</a></h6>
+                            <div class="single-product-item-price">
+                                $10.00 - $70.00
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single-product-item">
+                        <div class="single-product-item-image">
+                            <a href="productdetails.html" class="prodcut-images">
+                                <img class="primary-image" src="assets/images/products/product-image-1-1.jpg" alt="">
+                                <img class="secondary-image" src="assets/images/products/product-image-1-2.jpg" alt="">
+                            </a>
+                            <ul class="single-product-item-action">
+                                <li class="single-product-item-action-list">
+                                    <a href="#" class="single-product-item-action-link"><i
+                                            class="icon-rt-heart2"></i></a>
+                                </li>
+                                <li class="single-product-item-action-list">
+                                    <a href="#" title="Quick View" data-bs-toggle="modal"
+                                       data-bs-target="#quick-view-modal"
+                                       class="single-product-item-action-link"><i class="icon-rt-eye2"></i></a>
+                                </li>
+                                <li class="single-product-item-action-list product-cart">
+                                    <a href="#" class="single-product-item-action-link"><i
+                                            class="icon-rt-basket-outline"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="single-product-item-content">
+                            <div class="single-product-item-rating">
+                                <i class="icon-rt-star-solid select-star"></i>
+                                <i class="icon-rt-star-solid select-star"></i>
+                                <i class="icon-rt-star-solid select-star"></i>
+                                <i class="icon-rt-star-solid select-star"></i>
+                                <i class="icon-rt-star-solid"></i>
+                            </div>
+                            <h6 class="single-product-item-title"><a href="productdetails.html">Dried mango</a></h6>
+                            <div class="single-product-item-price">
+                                $10.00 - $70.00
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single-product-item">
+                        <div class="single-product-item-image">
+                            <a href="productdetails.html" class="prodcut-images">
+                                <img class="primary-image" src="assets/images/products/product-image-3-1.jpg" alt="">
+                                <img class="secondary-image" src="assets/images/products/product-image-3-2.jpg" alt="">
+                            </a>
+                            <ul class="single-product-item-action">
+                                <li class="single-product-item-action-list">
+                                    <a href="#" class="single-product-item-action-link"><i
+                                            class="icon-rt-heart2"></i></a>
+                                </li>
+                                <li class="single-product-item-action-list">
+                                    <a href="#" title="Quick View" data-bs-toggle="modal"
+                                       data-bs-target="#quick-view-modal"
+                                       class="single-product-item-action-link"><i class="icon-rt-eye2"></i></a>
+                                </li>
+                                <li class="single-product-item-action-list product-cart">
+                                    <a href="#" class="single-product-item-action-link"><i
+                                            class="icon-rt-basket-outline"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="single-product-item-content">
+                            <div class="single-product-item-rating">
+                                <i class="icon-rt-star-solid select-star"></i>
+                                <i class="icon-rt-star-solid select-star"></i>
+                                <i class="icon-rt-star-solid select-star"></i>
+                                <i class="icon-rt-star-solid select-star"></i>
+                                <i class="icon-rt-star-solid"></i>
+                            </div>
+                            <h6 class="single-product-item-title"><a href="productdetails.html">Dried mango</a></h6>
+                            <div class="single-product-item-price">
+                                $10.00 - $70.00
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single-product-item">
+                        <div class="single-product-item-image">
+                            <a href="productdetails.html" class="prodcut-images">
+                                <img class="primary-image" src="assets/images/products/product-image-4-1.jpg" alt="">
+                                <img class="secondary-image" src="assets/images/products/product-image-4-2.jpg" alt="">
+                            </a>
+                            <ul class="single-product-item-action">
+                                <li class="single-product-item-action-list">
+                                    <a href="#" class="single-product-item-action-link"><i
+                                            class="icon-rt-heart2"></i></a>
+                                </li>
+                                <li class="single-product-item-action-list">
+                                    <a href="#" title="Quick View" data-bs-toggle="modal"
+                                       data-bs-target="#quick-view-modal"
+                                       class="single-product-item-action-link"><i class="icon-rt-eye2"></i></a>
+                                </li>
+                                <li class="single-product-item-action-list product-cart">
+                                    <a href="#" class="single-product-item-action-link"><i
+                                            class="icon-rt-basket-outline"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="single-product-item-content">
+                            <div class="single-product-item-rating">
+                                <i class="icon-rt-star-solid select-star"></i>
+                                <i class="icon-rt-star-solid select-star"></i>
+                                <i class="icon-rt-star-solid select-star"></i>
+                                <i class="icon-rt-star-solid select-star"></i>
+                                <i class="icon-rt-star-solid"></i>
+                            </div>
+                            <h6 class="single-product-item-title"><a href="productdetails.html">Dried mango</a></h6>
+                            <div class="single-product-item-price">
+                                $10.00 - $70.00
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single-product-item">
+                        <div class="single-product-item-image">
+                            <a href="productdetails.html" class="prodcut-images">
+                                <img class="primary-image" src="assets/images/products/product-image-5-1.jpg" alt="">
+                                <img class="secondary-image" src="assets/images/products/product-image-5-2.jpg" alt="">
+                            </a>
+                            <ul class="single-product-item-action">
+                                <li class="single-product-item-action-list">
+                                    <a href="#" class="single-product-item-action-link"><i
+                                            class="icon-rt-heart2"></i></a>
+                                </li>
+                                <li class="single-product-item-action-list">
+                                    <a href="#" title="Quick View" data-bs-toggle="modal"
+                                       data-bs-target="#quick-view-modal"
+                                       class="single-product-item-action-link"><i class="icon-rt-eye2"></i></a>
+                                </li>
+                                <li class="single-product-item-action-list product-cart">
+                                    <a href="#" class="single-product-item-action-link"><i
+                                            class="icon-rt-basket-outline"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="single-product-item-content">
+                            <div class="single-product-item-rating">
+                                <i class="icon-rt-star-solid select-star"></i>
+                                <i class="icon-rt-star-solid select-star"></i>
+                                <i class="icon-rt-star-solid select-star"></i>
+                                <i class="icon-rt-star-solid select-star"></i>
+                                <i class="icon-rt-star-solid"></i>
+                            </div>
+                            <h6 class="single-product-item-title"><a href="productdetails.html">Dried mango</a></h6>
+                            <div class="single-product-item-price">
+                                $10.00 - $70.00
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single-product-item">
+                        <div class="single-product-item-image">
+                            <a href="productdetails.html" class="prodcut-images">
+                                <img class="primary-image" src="assets/images/products/product-image-6-1.jpg" alt="">
+                                <img class="secondary-image" src="assets/images/products/product-image-6-2.jpg" alt="">
+                            </a>
+                            <ul class="single-product-item-action">
+                                <li class="single-product-item-action-list">
+                                    <a href="#" class="single-product-item-action-link"><i
+                                            class="icon-rt-heart2"></i></a>
+                                </li>
+                                <li class="single-product-item-action-list">
+                                    <a href="#" title="Quick View" data-bs-toggle="modal"
+                                       data-bs-target="#quick-view-modal"
+                                       class="single-product-item-action-link"><i class="icon-rt-eye2"></i></a>
+                                </li>
+                                <li class="single-product-item-action-list product-cart">
+                                    <a href="#" class="single-product-item-action-link"><i
+                                            class="icon-rt-basket-outline"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="single-product-item-content">
+                            <div class="single-product-item-rating">
+                                <i class="icon-rt-star-solid select-star"></i>
+                                <i class="icon-rt-star-solid select-star"></i>
+                                <i class="icon-rt-star-solid select-star"></i>
+                                <i class="icon-rt-star-solid select-star"></i>
+                                <i class="icon-rt-star-solid"></i>
+                            </div>
+                            <h6 class="single-product-item-title"><a href="productdetails.html">Dried mango</a></h6>
+                            <div class="single-product-item-price">
+                                $10.00 - $70.00
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Product Item Section End -->
+
+
+        <!-- Newsletter Start -->
+        <section class="newsletter-section bg-secondary">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-4 col-md-6 order-md-1 order-lg-1">
+                        <div class="newsletter-title-wrap">
+                            <div class="newsletter-icons">
+                                <i class="iconrt- icon-rt-mail-open-outline"></i>
+                            </div>
+                            <div class="newsletter-content">
+                                <h2>Sign up to Newsletter</h2>
+                                <p>...and receive $20 coupon for first shopping</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6  mt-4 mt-md-0 order-md-2 order-lg-3">
+                        <div class="newsletter-whatsapp-wrap">
+                            <div class="newsletter-whatsapp-inner">
+                                <div class="whatsapp-icons">
+                                    <i class="iconrt- icon-rt-logo-whatsapp"></i>
+                                </div>
+                                <div class="whatsapp-content">
+                                    <p>Call Us 24/7</p>
+                                    <h2>+8 88 55 4168</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-md-12 mt-4 mt-lg-0 order-md-3 order-lg-2">
+                        <form action="#" class="newsletter-form">
+                            <input type="email" placeholder="Your Email Address..." required>
+                            <button class="btn btn--primary submit-button fw-semibold" type="submit">Subscribe!</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Newsletter End -->
+
+        <!-- Our Feature Section Start -->
+        <section class="our-feature-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="single-feature-item">
+                            <div class="feature-icon feature-icon-1">
+                                <i class="icon-rt-shipping-fast-solid"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h6 class="title">Free Shipping</h6>
+                                <p class="description">Online Only. Exclusions Apply</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="single-feature-item">
+                            <div class="feature-icon feature-icon-2">
+                                <i class="icon-rt-money-bill-wave-solid"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h6 class="title">Best Price Guarantee</h6>
+                                <p class="description">If You Find a Lower Price</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="single-feature-item">
+                            <div class="feature-icon feature-icon-3">
+                                <i class="icon-rt-gift-solid"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h6 class="title">Free Curbside Pickup</h6>
+                                <p class="description">Grab Your Gear and Go</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="single-feature-item">
+                            <div class="feature-icon feature-icon-4">
+                                <i class="icon-rt-help-buoy-outline"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h6 class="title">Support 24/7</h6>
+                                <p class="description">Contact us 24 hours a day</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Our Feature Section End -->
+
+    </main>
+
+{% endblock %}
+
