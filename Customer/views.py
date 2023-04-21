@@ -44,7 +44,7 @@ def login(request):
             'mobile': userlogin[0].mobile
         }
         request.session['user'] = d
-    return redirect('user_login')
+    return redirect('view')
 
 
 def user_logout(request):
@@ -90,12 +90,12 @@ def saveProductToCart(request):
     prod_obj = Products.objects.get(id=productID)
     total_price = float(prod_obj.price) * quantity
 
-    cartobj = Cart()
-    cartobj.product_id = productID
-    cartobj.quantity = quantity
-    cartobj.client_id = customers_id
-    cartobj.total_price = total_price
-    cartobj.save()
+    cart_obj = Cart()
+    cart_obj.product_id = productID
+    cart_obj.quantity = quantity
+    cart_obj.client_id = customers_id
+    cart_obj.total_price = total_price
+    cart_obj.save()
 
     return redirect('add_to_cart')
 
@@ -130,13 +130,14 @@ def add_to_cart(request):
 
 @csrf_exempt
 def changecart_quantity(request, id):
-    New_quantity = float(request.POST["quantity"])
-    cartobj = Cart.objects.get(id=id)
-    cartobj.quantity = float(New_quantity)
-    ppi = cartobj.products.price
+    new_quantity = float(request.POST['quantity'])
+    cart_obj = Cart.objects.get(id=id)
+    cart_obj.quantity = float(new_quantity)
+    price_per_item = cart_obj.products.price
 
-    cartobj.total_price = New_quantity * ppi
-    cartobj.save()
+    cart_obj.total_price = (new_quantity * price_per_item)
+    cart_obj.save()
+    print(new_quantity)
     return HttpResponse('success')
 
 
