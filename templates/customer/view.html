@@ -4,23 +4,57 @@
 {% block customercontent %}
     <main>
         <!-- Breadcrumb Start -->
-        <section class="breadcrumb-section">
+{#        <section class="breadcrumb-section">#}
+{#            <div class="container">#}
+{#                <div class="row">#}
+{#                    <div class="col-12">#}
+{#                        <div class="breadcrumb-content">#}
+{#                            <h1 class="page-title">Shop</h1>#}
+{#                            <ul class="breadcrumb-page-list">#}
+{#                                <li class="breadcrumb-item"><a href="#">Home</a></li>#}
+{#                                <li class="breadcrumb-item">Shop</li>#}
+{#                            </ul>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </section>#}
+        <!-- Breadcrumb End -->
+  <!-- Slider Main Start -->
+    <section class="hero-slider-one-active">
+        <div class="single-hero-slider hero-slider-one">
+            <a href="#" class="hero-slider-bg-image">
+                <img src="{% static 'assets/images/hero/slider1_mixy1.webp' %}" alt="">
+            </a>
             <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="breadcrumb-content">
-                            <h1 class="page-title">Shop</h1>
-                            <ul class="breadcrumb-page-list">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item">Shop</li>
-                            </ul>
-                        </div>
-                    </div>
+                <div class="single-hero-slider-inner">
+                    <h5 class="sub-title">100% ORGANIC POTATO</h5>
+                    <h1 class="title">Potato Chips & Pepper With Onion</h1>
+                    <h3 class="hero-price">
+                        Starting At <b> $18.36</b>
+                    </h3>
+                    <a class="slideshow-button" href="shop.html">shop now <i class="icon-rt-arrow-right-solid"></i></a>
                 </div>
             </div>
-        </section>
-        <!-- Breadcrumb End -->
+        </div>
+        <div class="single-hero-slider hero-slider-one">
+            <a href="#" class="hero-slider-bg-image">
+                <img src="{% static 'assets/images/hero/slider2_mixy1.webp' %}" alt="">
+            </a>
+            <div class="container">
+                <div class="single-hero-slider-inner">
+                    <h5 class="sub-title">100% ORGANIC POTATO</h5>
+                    <h1 class="title">Nutritious Healthy Nuts & Dried Fruits</h1>
+                    <h3 class="hero-price">
+                        Starting At <b> $18.36</b>
+                    </h3>
+                    <a class="slideshow-button" href="shop.html">shop now <i class="icon-rt-arrow-right-solid"></i></a>
+                </div>
+            </div>
+        </div>
 
+    </section>
+    <!-- Slider Main End -->
         <!-- Page Section Content Start -->
         <section class="page-secton-wrapper section-space-pb">
             <div class="container">
@@ -34,7 +68,7 @@
                             <ul class="product-categorie">
                                 {% for i in cat %}
                                     <li class="product-categorie-item"><a
-                                            href="/Customer/viewProductByCategory/{{ i.id }}">{{ i.name }}</a></li>
+                                            href="viewProductByCategory/{{ i.id }}">{{ i.name }}</a></li>
 
                                 {% endfor %}
 
@@ -222,7 +256,7 @@
                                     <!-- Single Item Start -->
                                     <div class="single-product-item">
                                         <div class="single-product-item-image">
-                                            <a href="/Customer/productdetails/{{ i.id }}" class="prodcut-images">
+                                            <a href="productdetails/{{ i.id }}" class="prodcut-images">
                                                 <img class="primary-image"
                                                      src="/static/media/{{ i.image }}" alt="">
 
@@ -378,4 +412,7 @@
         <!-- Our Feature Section End -->
 
     </main>
+
+
+
 {% endblock %}

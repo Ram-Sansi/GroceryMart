@@ -1,11 +1,10 @@
 from django.contrib import messages
 from django.shortcuts import *
 from django.views import View
-from django.views.decorators.csrf import csrf_exempt
-
 from .models import *
 from Merchant.models import *
 from Customer.models import *
+from django.views.decorators.csrf import csrf_exempt
 
 
 # Create your views here.
@@ -54,8 +53,8 @@ def user_logout(request):
     return redirect('user_login')
 
 
-def index(request):
-    return render(request, 'customer/index.html')
+# def index(request):
+#     return render(request, 'customer/index.html')
 
 
 def view(request):
@@ -145,4 +144,3 @@ def delete_cart(request, id):
     prod = Cart.objects.get(id=id)
     prod.delete()
     return redirect('add_to_cart')
-
