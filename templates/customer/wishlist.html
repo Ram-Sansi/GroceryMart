@@ -1,4 +1,5 @@
 {% extends 'customer/themelayout.html' %}
+{% load static %}
 {% block customercontent %}
     <main>
         <!-- Breadcrumb Start -->
@@ -43,7 +44,7 @@
                                     <tbody>
                                     <tr>
                                         <td class="plantmore-product-thumbnail"><a href="#"><img
-                                                src="assets/images/products/cart/cart-1.jpg" alt=""></a></td>
+                                                src="{% static 'assets/images/products/cart/cart-1.jpg' %}" alt=""></a></td>
                                         <td class="plantmore-product-name"><a href="#">Nullam maximus</a></td>
                                         <td class="plantmore-product-price"><span class="amount">$23.39</span></td>
                                         <td class="plantmore-product-stock-status"><span
@@ -56,7 +57,7 @@
                                     </tr>
                                     <tr>
                                         <td class="plantmore-product-thumbnail"><a href="#"><img
-                                                src="assets/images/products/cart/cart-2.jpg" alt=""></a></td>
+                                                src="{% static 'assets/images/products/cart/cart-2.jpg' %}" alt=""></a></td>
                                         <td class="plantmore-product-name"><a href="#">Natus erro</a></td>
                                         <td class="plantmore-product-price"><span class="amount">$30.50</span></td>
                                         <td class="plantmore-product-stock-status"><span
@@ -69,7 +70,7 @@
                                     </tr>
                                     <tr>
                                         <td class="plantmore-product-thumbnail"><a href="#"><img
-                                                src="assets/images/products/cart/cart-3.jpg" alt=""></a></td>
+                                                src="{% static 'assets/images/products/cart/cart-3.jpg' %}" alt=""></a></td>
                                         <td class="plantmore-product-name"><a href="#">Sit voluptatem</a></td>
                                         <td class="plantmore-product-price"><span class="amount">$40.19</span></td>
                                         <td class="plantmore-product-stock-status"><span

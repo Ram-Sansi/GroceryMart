@@ -21,5 +21,5 @@ from django.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("Merchant/", include('Merchant.urls')),
-    path("Customer/", include('Customer.urls')),
+    path("", include('Customer.urls')),
 ]

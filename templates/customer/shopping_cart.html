@@ -29,7 +29,7 @@
                         <div class="wishlist-tiel">
                             <h2 class="mb-5 fw-bold">My Cart</h2>
                         </div>
-                        <form action="#" class="cart-table">
+                        <form action="saveProductToCart" class="cart-table">
                             <div class="table-content table-responsive">
                                 <table class="table border">
                                     <thead>
@@ -119,7 +119,7 @@
                                         <div class="coupon2">
                                             <input class="submit btn btn--primary" name="update_cart"
                                                    value="Update cart" type="submit">
-                                            <a href="shop.html" class="btn btn--primary continue-btn ms-2">Continue
+                                            <a href="shopping_cart" class="btn btn--primary continue-btn ms-2">Continue
                                                 Shopping</a>
                                         </div>
 
@@ -141,7 +141,7 @@
                                             <li>Total <span>{{ total }}</span></li>
                                         </ul>
                                         <div class="button-box mt-3 text-end">
-                                            <a href="/Customer/checkout"
+                                            <a href="checkout"
                                                class="proceed-checkout-btn btn btn--primary w-full">Proceed to
                                                 checkout</a>
                                         </div>
