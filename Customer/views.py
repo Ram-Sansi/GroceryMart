@@ -97,7 +97,7 @@ def saveProductToCart(request):
     cartobj.total_price = total_price
     cartobj.save()
 
-    return render(request, 'customer/shopping_cart.html')
+    return redirect('add_to_cart')
 
 
 def contact_us(request):
@@ -133,7 +133,7 @@ def changecart_quantity(request, id):
     New_quantity = float(request.POST["quantity"])
     cartobj = Cart.objects.get(id=id)
     cartobj.quantity = float(New_quantity)
-    ppi = cartobj.Products.price
+    ppi = cartobj.products.price
 
     cartobj.total_price = New_quantity * ppi
     cartobj.save()
