@@ -145,3 +145,4 @@ def delete_cart(request, id):
     prod = Cart.objects.get(id=id)
     prod.delete()
     return redirect('add_to_cart')
+
