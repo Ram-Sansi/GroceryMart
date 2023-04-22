@@ -1,3 +1,5 @@
+import datetime
+
 from django.contrib import messages
 from django.shortcuts import *
 from django.views import View
@@ -44,7 +46,7 @@ def login(request):
             'mobile': userlogin[0].mobile
         }
         request.session['user'] = d
-    return redirect('user_login')
+    return redirect('view')
 
 
 def user_logout(request):
@@ -86,18 +88,18 @@ def productdetails(request, id):
 def saveProductToCart(request):
     productID = request.POST['productID']
     quantity = int(request.POST['quantity'])
-    customers_id = request.session['user']['id']
-    prod_obj = Products.objects.get(id=productID)
-    total_price = float(prod_obj.price) * quantity
+    customersid = request.session['user']['id']
+    prodobj = Products.objects.get(id=productID)
+    totalprice = float(prodobj.price) * quantity
 
     cartobj = Cart()
     cartobj.product_id = productID
     cartobj.quantity = quantity
-    cartobj.client_id = customers_id
-    cartobj.total_price = total_price
+    cartobj.client_id = customersid
+    cartobj.total_price = totalprice
     cartobj.save()
 
-    return render(request, 'customer/shopping_cart.html')
+    return redirect('add_to_cart')
 
 
 def contact_us(request):
@@ -112,30 +114,26 @@ def wishlist(request):
     return render(request, 'customer/wishlist.html')
 
 
-def checkout(request):
-    return render(request, 'customer/checkout.html')
-
-
 def shopping_cart(request):
     return render(request, 'customer/shopping_cart.html')
 
 
 def add_to_cart(request):
-    cart = Cart.objects.filter(client_id=request.session['user']['id'])
+    show = Cart.objects.filter(client_id=request.session['user']['id'])
     total = 0
-    for items in cart:
+    for items in show:
         total += float(items.total_price)
-    return render(request, 'customer/shopping_cart.html', {'cart': cart, 'total': total})
+    return render(request, 'customer/shopping_cart.html', {'show': show, 'total': total})
 
 
 @csrf_exempt
 def changecart_quantity(request, id):
-    New_quantity = float(request.POST["quantity"])
+    newquantity = float(request.POST['quantity'])
     cartobj = Cart.objects.get(id=id)
-    cartobj.quantity = float(New_quantity)
-    ppi = cartobj.Products.price
+    cartobj.quantity = float(newquantity)
+    ppi = cartobj.product.price
 
-    cartobj.total_price = New_quantity * ppi
+    cartobj.total_price = (newquantity * ppi)
     cartobj.save()
     return HttpResponse('success')
 
@@ -144,3 +142,42 @@ def delete_cart(request, id):
     prod = Cart.objects.get(id=id)
     prod.delete()
     return redirect('add_to_cart')
+
+
+def ConfirmOrder(request):
+    customerId = request.session['user']['id']
+    cartItems = Cart.objects.filter(client_id=customerId)
+    totalCost = 0
+    totalItems = 0
+    for items in cartItems:
+        totalItems += float(items.quantity)
+        totalCost += float(items.total_price)
+
+    # BILL LOGIC STARTS_____________
+    billObj = Bill()
+    billObj.Client_id = customerId
+    billObj.totalprice = totalCost
+    billObj.totalitems = totalItems
+    billObj.billdate = datetime.date.today()
+    billObj.billtime = datetime.datetime.now().time()
+    billObj.save()
+    # BILL LOGIC COMPLETED ___ BILL DETAILS START ___
+
+    billId = billObj.id
+
+    for items in cartItems:
+        # new obj in every iteration
+        billDetailObj = Billdetail()
+        billDetailObj.Bill_id = billId
+        billDetailObj.Client_id = customerId
+        billDetailObj.Product_id = items.product_id
+        billDetailObj.quantity = items.quantity
+        billDetailObj.itemprice = items.total_price
+        billDetailObj.save()
+        items.delete()
+
+    return HttpResponse(f"your order of Rs {totalCost} has been placed, your bill id is {billId} ")
+
+
+def dashboard(request):
+    return render(request,'customer/dashboard.html')

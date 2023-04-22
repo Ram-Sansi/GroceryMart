@@ -18,10 +18,11 @@ urlpatterns = [
     path("contact_us", contact_us, name="contact_us"),
     path("about_us", about_us, name="about_us"),
     path("wishlist/<int:id>", wishlist, name="wishlist"),
-    path("checkout", checkout, name="checkout"),
     path("shopping_cart/<int:id>", shopping_cart, name="shopping_cart"),
     path("add_to_cart", add_to_cart, name="add_to_cart"),
     path("changecart_quantity/<int:id>", changecart_quantity, name='changecart_quantity'),
     path("delete_cart/<int:id>", delete_cart, name='delete_cart'),
+    path("ConfirmOrder", ConfirmOrder, name="ConfirmOrder"),
+    path("dashboard", dashboard, name="dashboard"),
 
 ]

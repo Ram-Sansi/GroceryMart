@@ -44,24 +44,25 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    {% for i in cart %}
+                                    {% for i in show %}
                                         <tr>
 
                                             <td><img src="/static/media/{{ i.product.image }}" width="100"></td>
                                             <td>{{ i.product.name }}</td>
                                             <td>{{ i.product.price }}</td>
                                             <td>
-                                                <form action="/changecart_quantity/{{ i.id }}" method="post">
+                                                <form id="changecartquantityform-{{ i.id }}"
+                                                      action="/changecart_quantity/{{ i.id }}" method="post"
+                                                      class="cart-quantity d-flex">
                                                     {% csrf_token %}
-                                                    <div class="quantity">
+                                                    <div class="quantity m-auto">
                                                         <button type="button" class="btn btn-outline-secondary"
                                                                 onclick="decreaseCartValue({{ i.id }})">
                                                             <b> - </b>
                                                         </button>
-                                                        <input class="cart-plus-minus-box"
+                                                        <input class="cart-plus-minus-box" name="quantity"
                                                                id="changeCartQuantityInput-{{ i.id }}"
-                                                               type="text" value="{{ i.quantity|floatformat }}"
-                                                               name="quantity">
+                                                               value="{{ i.quantity|floatformat }} " type="text">
                                                         <button type="button" class="btn btn-outline-secondary"
                                                                 onclick="increaseCartValue({{ i.id }})">
                                                             <b> + </b>
@@ -141,7 +142,7 @@
                                             <li>Total <span>{{ total }}</span></li>
                                         </ul>
                                         <div class="button-box mt-3 text-end">
-                                            <a href="checkout"
+                                            <a href="/ConfirmOrder"
                                                class="proceed-checkout-btn btn btn--primary w-full">Proceed to
                                                 checkout</a>
                                         </div>
@@ -275,7 +276,6 @@
         const decreaseCartValue = (id) => {
             let qty = parseInt(document.getElementById(`changeCartQuantityInput-${id}`).value)
             if (qty > 1) {
-
                 qty = qty - 1
                 document.getElementById(`changeCartQuantityInput-${id}`).value = qty
                 submitChangeCartValue(id)

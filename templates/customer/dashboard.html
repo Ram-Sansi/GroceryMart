@@ -1,0 +1,311 @@
+{% extends 'customer/themelayout.html' %}
+{% load static %}
+{% block customercontent %}
+
+    <main>
+        <!-- Breadcrumb Start -->
+        <section class="breadcrumb-section-two">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="breadcrumb-content">
+                            <h2 class="visually-hidden">My Account</h2>
+                            <ul class="breadcrumb-page-list">
+                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="breadcrumb-item"><span class="active">My Account</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Breadcrumb End -->
+
+        <!-- Page Section Content Start -->
+        <section class="page-secton-wrapper section-space-ptb">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="account-dashboard">
+                            <div class="dashboard-upper-info">
+                                <div class="row align-items-center no-gutters">
+                                    <div class="col-lg-3 col-md-12">
+                                        <div class="d-single-info">
+                                            <p class="user-name">Hello <span>Yourmail@info</span></p>
+                                            <p>(not yourmail@info? <a href="#">Log Out</a>)</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-12">
+                                        <div class="d-single-info">
+                                            <p>Need Assistance? Customer service at.</p>
+                                            <p>admin@devitems.com.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-12">
+                                        <div class="d-single-info">
+                                            <p>E-mail them at </p>
+                                            <p>support@yoursite.com</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 col-md-12">
+                                        <div class="d-single-info text-lg-center">
+                                            <a href="cart.html" class="view-cart btn btn--primary">view cart</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 col-lg-2">
+                                    <!-- Nav tabs -->
+                                    <ul role="tablist" class="nav flex-column dashboard-list">
+                                        <li><a href="#dashboard" data-bs-toggle="tab"
+                                               class="nav-link active">Dashboard</a></li>
+                                        <li><a href="#orders" data-bs-toggle="tab" class="nav-link">Orders</a></li>
+                                        <li><a href="#downloads" data-bs-toggle="tab" class="nav-link">Downloads</a>
+                                        </li>
+                                        <li><a href="#address" data-bs-toggle="tab" class="nav-link">Addresses</a></li>
+                                        <li><a href="#account-details" data-bs-toggle="tab" class="nav-link">Account
+                                            details</a></li>
+                                        <li><a href="login-register.html" class="nav-link">logout</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-12 col-lg-10">
+                                    <!-- Tab panes -->
+                                    <div class="tab-content dashboard-content">
+                                        <div class="tab-pane active" id="dashboard">
+                                            <h3>Dashboard </h3>
+                                            <p>From your account dashboard. you can easily check &amp; view your <a
+                                                    href="#">recent orders</a>, manage your <a href="#">shipping and
+                                                billing addresses</a> and <a href="#">edit your password and account
+                                                details.</a></p>
+                                        </div>
+                                        <div class="tab-pane fade" id="orders">
+                                            <h3>Orders</h3>
+                                            <div class="table-responsive">
+                                                <table class="table">
+                                                    <thead>
+                                                    <tr>
+                                                        <th>Order</th>
+                                                        <th>Date</th>
+                                                        <th>Status</th>
+                                                        <th>Total</th>
+                                                        <th>Actions</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td>May 10, 2022</td>
+                                                        <td>Processing</td>
+                                                        <td>$25.00 for 1 item</td>
+                                                        <td><a href="shopping-cart.html" class="view btn btn--primary">view</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2</td>
+                                                        <td>May 10, 2022</td>
+                                                        <td>Processing</td>
+                                                        <td>$17.00 for 1 item</td>
+                                                        <td><a href="shopping-cart.html" class="view btn btn--primary">view</a>
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="downloads">
+                                            <h3>Downloads</h3>
+                                            <div class="table-responsive">
+                                                <table class="table">
+                                                    <thead>
+                                                    <tr>
+                                                        <th>Product</th>
+                                                        <th>Downloads</th>
+                                                        <th>Expires</th>
+                                                        <th>Download</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr>
+                                                        <td>Haven - Free Real Estate PSD Template</td>
+                                                        <td>May 10, 2018</td>
+                                                        <td>never</td>
+                                                        <td><a href="#" class="view btn btn--primary">Click Here To
+                                                            Download Your File</a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Nevara - ecommerce html template</td>
+                                                        <td>Sep 11, 2018</td>
+                                                        <td>never</td>
+                                                        <td><a href="#" class="view btn btn--primary">Click Here To
+                                                            Download Your File</a></td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane" id="address">
+                                            <p>The following addresses will be used on the checkout page by default.</p>
+                                            <h4 class="billing-address">Billing address</h4>
+                                            <a href="#" class="view btn btn--primary">edit</a>
+                                            <p class="biller-name">Johan Don</p>
+                                            <p>Bangladesh</p>
+                                        </div>
+                                        <div class="tab-pane fade" id="account-details">
+                                            <h3>Account details </h3>
+                                            <div class="login">
+                                                <div class="login-form-container">
+                                                    <div class="account-login-form">
+                                                        <form action="#">
+                                                            <p>Already have an account? <a href="#">Log in instead!</a>
+                                                            </p>
+                                                            <label>Social title</label>
+                                                            <div class="input-radio">
+                                                                <span class="custom-radio"><input type="radio" value="1"
+                                                                                                  name="id_gender"> Mr.</span>
+                                                                <span class="custom-radio"><input type="radio" value="1"
+                                                                                                  name="id_gender"> Mrs.</span>
+                                                            </div>
+                                                            <div class="account-input-box">
+                                                                <label>First Name</label>
+                                                                <input type="text" name="first-name">
+                                                                <label>Last Name</label>
+                                                                <input type="text" name="last-name">
+                                                                <label>Email</label>
+                                                                <input type="text" name="email-name">
+                                                                <label>Password</label>
+                                                                <input type="password" name="user-password">
+                                                                <label>Birthdate</label>
+                                                                <input type="text" placeholder="MM/DD/YYYY" value=""
+                                                                       name="birthday">
+                                                            </div>
+                                                            <div class="example">
+                                                                (E.g.: 05/31/1970)
+                                                            </div>
+                                                            <div class="custom-checkbox">
+                                                                <input type="checkbox" value="1" name="optin">
+                                                                <label>Receive offers from our partners</label>
+                                                            </div>
+                                                            <div class="custom-checkbox">
+                                                                <input type="checkbox" value="1" name="newsletter">
+                                                                <label>Sign up for our newsletter<br><em>You may
+                                                                    unsubscribe at any moment. For that purpose, please
+                                                                    find our contact info in the legal
+                                                                    notice.</em></label>
+                                                            </div>
+                                                            <div class="button-box">
+                                                                <button class="btn default-btn btn btn--primary"
+                                                                        type="submit">Save
+                                                                </button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Page Section Content End -->
+
+
+        <!-- Newsletter Start -->
+        <section class="newsletter-section bg-secondary">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-4 col-md-6 order-md-1 order-lg-1">
+                        <div class="newsletter-title-wrap">
+                            <div class="newsletter-icons">
+                                <i class="iconrt- icon-rt-mail-open-outline"></i>
+                            </div>
+                            <div class="newsletter-content">
+                                <h2>Sign up to Newsletter</h2>
+                                <p>...and receive $20 coupon for first shopping</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6  mt-4 mt-md-0 order-md-2 order-lg-3">
+                        <div class="newsletter-whatsapp-wrap">
+                            <div class="newsletter-whatsapp-inner">
+                                <div class="whatsapp-icons">
+                                    <i class="iconrt- icon-rt-logo-whatsapp"></i>
+                                </div>
+                                <div class="whatsapp-content">
+                                    <p>Call Us 24/7</p>
+                                    <h2>+8 88 55 4168</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-md-12 mt-4 mt-lg-0 order-md-3 order-lg-2">
+                        <form action="#" class="newsletter-form">
+                            <input type="email" placeholder="Your Email Address..." required>
+                            <button class="btn btn--primary submit-button fw-semibold" type="submit">Subscribe!</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Newsletter End -->
+
+        <!-- Our Feature Section Start -->
+        <section class="our-feature-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="single-feature-item">
+                            <div class="feature-icon feature-icon-1">
+                                <i class="icon-rt-shipping-fast-solid"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h6 class="title">Free Shipping</h6>
+                                <p class="description">Online Only. Exclusions Apply</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="single-feature-item">
+                            <div class="feature-icon feature-icon-2">
+                                <i class="icon-rt-money-bill-wave-solid"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h6 class="title">Best Price Guarantee</h6>
+                                <p class="description">If You Find a Lower Price</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="single-feature-item">
+                            <div class="feature-icon feature-icon-3">
+                                <i class="icon-rt-gift-solid"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h6 class="title">Free Curbside Pickup</h6>
+                                <p class="description">Grab Your Gear and Go</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="single-feature-item">
+                            <div class="feature-icon feature-icon-4">
+                                <i class="icon-rt-help-buoy-outline"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h6 class="title">Support 24/7</h6>
+                                <p class="description">Contact us 24 hours a day</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Our Feature Section End -->
+
+    </main>
+{% endblock %}
+
