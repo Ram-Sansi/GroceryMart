@@ -81,7 +81,7 @@ def searchproducts(request):
 
 def productdetails(request, id):
     obj = Products.objects.get(id=id)
-    cat = Category.objects.get(id=id)
+    cat = Category.objects.filter(id=id)
     return render(request, 'customer/productdetails.html', {'obj': obj, 'cat': cat})
 
 
@@ -180,11 +180,8 @@ def ConfirmOrder(request):
 
 
 def dashboard(request):
-    return render(request, 'customer/dashboard.html')
+    client = Client.objects.filter(id=request.session['user']['id'])
+    bill = Bill.objects.all()
+    billdetail = Billdetail.objects.all()
+    return render(request, 'customer/dashboard.html', {'client': client,'bill': bill,'billdetail': billdetail})
 
-
-def viewbill(request, id):
-    bill = Bill.objects.get(id=id)
-    billdetail = Billdetail.objects.get(id=id)
-
-    return render(request, 'customer/dashboard.html', {'bill': bill, 'billdetail': billdetail})
