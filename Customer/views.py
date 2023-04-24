@@ -181,7 +181,14 @@ def ConfirmOrder(request):
 
 def dashboard(request):
     client = Client.objects.filter(id=request.session['user']['id'])
-    bill = Bill.objects.all()
-    billdetail = Billdetail.objects.all()
-    return render(request, 'customer/dashboard.html', {'client': client,'bill': bill,'billdetail': billdetail})
+    return render(request, 'customer/dashboard.html', {'client': client})
 
+
+def viewbill(request):
+    bill = Bill.objects.all()
+    return render(request, 'customer/dashboard.html', {'bill': bill})
+
+
+def viewbilldetail(request):
+    billdetail = Billdetail.objects.all()
+    return render(request, 'customer/dashboard.html', {'billdetail': billdetail})

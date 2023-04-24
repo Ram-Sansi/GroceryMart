@@ -1,6 +1,7 @@
 {% extends 'customer/themelayout.html' %}
 {% load static %}
 {% block customercontent %}
+
     <main>
         <!-- Breadcrumb Start -->
         <section class="breadcrumb-section-two">
@@ -30,8 +31,7 @@
                                 <div class="row align-items-center no-gutters">
                                     <div class="col-lg-3 col-md-12">
                                         <div class="d-single-info">
-                                            {{ i.Client.email }}
-                                            <p class="user-name">Hello <span>Yourmail@info</span></p>
+                                            <p class="user-name">Hello : {{ Client.email }}</span></p>
                                             <p>(not yourmail@info? <a href="#">Log Out</a>)</p>
                                         </div>
                                     </div>
@@ -60,13 +60,13 @@
                                     <ul role="tablist" class="nav flex-column dashboard-list">
                                         <li><a href="#dashboard" data-bs-toggle="tab"
                                                class="nav-link active">Dashboard</a></li>
-                                        <li><a href="#orders" data-bs-toggle="tab" class="nav-link">Bills</a></li>
-                                        <li><a href="#downloads" data-bs-toggle="tab" class="nav-link">Bill Details</a>
+                                        <li><a href="#orders" data-bs-toggle="tab" class="nav-link">Orders</a></li>
+                                        <li><a href="#downloads" data-bs-toggle="tab" class="nav-link">Downloads</a>
                                         </li>
                                         <li><a href="#address" data-bs-toggle="tab" class="nav-link">Addresses</a></li>
                                         <li><a href="#account-details" data-bs-toggle="tab" class="nav-link">Account
                                             details</a></li>
-                                        <li><a href="#" class="nav-link">logout</a></li>
+                                        <li><a href="login-register.html" class="nav-link">logout</a></li>
                                     </ul>
                                 </div>
                                 <div class="col-md-12 col-lg-10">
@@ -80,61 +80,66 @@
                                                 details.</a></p>
                                         </div>
                                         <div class="tab-pane fade" id="orders">
-                                            <h3>Bills</h3>
+                                            <h3>Orders</h3>
                                             <div class="table-responsive">
                                                 <table class="table">
                                                     <thead>
                                                     <tr>
-                                                        <th>ID</th>
-                                                        <th>Total Price</th>
-                                                        <th>Total Items</th>
-                                                        <th>Bill Date</th>
-                                                        <th>Bill Time</th>
-                                                        <th>Payment Status</th>
-                                                        <th>Client ID</th>
+                                                        <th>Order</th>
+                                                        <th>Date</th>
+                                                        <th>Status</th>
+                                                        <th>Total</th>
+                                                        <th>Actions</th>
                                                     </tr>
                                                     </thead>
                                                     <tbody>
-                                                    {% for i in bill %}
-                                                        <tr>
-                                                            <td>{{ i.id }}</td>
-                                                            <td>{{ i.totalprice }}</td>
-                                                            <td>{{ i.totalitems }}</td>
-                                                            <td>{{ i.billdate }}</td>
-                                                            <td>{{ i.billtime }}</td>
-                                                            <td>{{ i.paymentstatus }}</td>
-                                                            <td>{{ i.Client_id }}</td>
-                                                        </tr>
-                                                    {% endfor %}
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td>May 10, 2022</td>
+                                                        <td>Processing</td>
+                                                        <td>$25.00 for 1 item</td>
+                                                        <td><a href="shopping-cart.html" class="view btn btn--primary">view</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2</td>
+                                                        <td>May 10, 2022</td>
+                                                        <td>Processing</td>
+                                                        <td>$17.00 for 1 item</td>
+                                                        <td><a href="shopping-cart.html" class="view btn btn--primary">view</a>
+                                                        </td>
+                                                    </tr>
                                                     </tbody>
                                                 </table>
                                             </div>
                                         </div>
                                         <div class="tab-pane fade" id="downloads">
-                                            <h3>Bill Details</h3>
+                                            <h3>Downloads</h3>
                                             <div class="table-responsive">
                                                 <table class="table">
                                                     <thead>
                                                     <tr>
-                                                        <th>ID</th>
-                                                        <th>Item Price</th>
-                                                        <th>Quantity</th>
-                                                        <th>Bill Id</th>
-                                                        <th>Client Id</th>
-                                                        <th>Product Id</th>
+                                                        <th>Product</th>
+                                                        <th>Downloads</th>
+                                                        <th>Expires</th>
+                                                        <th>Download</th>
                                                     </tr>
                                                     </thead>
                                                     <tbody>
-                                                    {% for i in billdetail %}
-                                                        <tr>
-                                                            <td>{{ i.id }}</td>
-                                                            <td>{{ i.itemprice }}</td>
-                                                            <td>{{ i.quantity }}</td>
-                                                            <td>{{ i.Bill_id }}</td>
-                                                            <td>{{ i.Client_id }}</td>
-                                                            <td>{{ i.Product_id }}</td>
-                                                        </tr>
-                                                    {% endfor %}
+                                                    <tr>
+                                                        <td>Haven - Free Real Estate PSD Template</td>
+                                                        <td>May 10, 2018</td>
+                                                        <td>never</td>
+                                                        <td><a href="#" class="view btn btn--primary">Click Here To
+                                                            Download Your File</a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Nevara - ecommerce html template</td>
+                                                        <td>Sep 11, 2018</td>
+                                                        <td>never</td>
+                                                        <td><a href="#" class="view btn btn--primary">Click Here To
+                                                            Download Your File</a></td>
+                                                    </tr>
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -207,5 +212,7 @@
             </div>
         </section>
         <!-- Page Section Content End -->
+
     </main>
 {% endblock %}
+
