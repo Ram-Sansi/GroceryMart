@@ -16,6 +16,9 @@ class Client(models.Model):
     class Meta:
         db_table = 'client'
 
+    def __str__(self):
+        return self.name
+
 
 class Cart(models.Model):
     quantity = models.FloatField()
@@ -41,7 +44,7 @@ class Bill(models.Model):
 
 class Billdetail(models.Model):
     itemprice = models.FloatField()
-    quantity= models.FloatField()
+    quantity = models.FloatField()
     Product = models.ForeignKey(to=Products, on_delete=models.CASCADE)
     Bill = models.ForeignKey(to=Bill, on_delete=models.CASCADE)
     Client = models.ForeignKey(to=Client, on_delete=models.CASCADE)
