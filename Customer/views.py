@@ -183,5 +183,5 @@ def dashboard(request):
     client = Client.objects.filter(id=request.session['user']['id'])
     bill = Bill.objects.all()
     billdetail = Billdetail.objects.all()
-    return render(request, 'customer/dashboard.html', {'client': client,'bill': bill,'billdetail': billdetail})
+    return render(request, 'customer/dashboard.html', {'client': client, 'bill': bill, 'billdetail': billdetail})
 

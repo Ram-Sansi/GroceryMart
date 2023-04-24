@@ -1,6 +1,7 @@
 {% extends 'customer/themelayout.html' %}
 {% load static %}
 {% block customercontent %}
+
     <main>
         <!-- Breadcrumb Start -->
         <section class="breadcrumb-section-two">
@@ -30,8 +31,7 @@
                                 <div class="row align-items-center no-gutters">
                                     <div class="col-lg-3 col-md-12">
                                         <div class="d-single-info">
-                                            {{ i.Client.email }}
-                                            <p class="user-name">Hello <span>Yourmail@info</span></p>
+                                            <p class="user-name">Hello</p>
                                             <p>(not yourmail@info? <a href="#">Log Out</a>)</p>
                                         </div>
                                     </div>
@@ -80,7 +80,7 @@
                                                 details.</a></p>
                                         </div>
                                         <div class="tab-pane fade" id="orders">
-                                            <h3>Bills</h3>
+                                            <h3>Orders</h3>
                                             <div class="table-responsive">
                                                 <table class="table">
                                                     <thead>
@@ -111,7 +111,7 @@
                                             </div>
                                         </div>
                                         <div class="tab-pane fade" id="downloads">
-                                            <h3>Bill Details</h3>
+                                            <h3>Downloads</h3>
                                             <div class="table-responsive">
                                                 <table class="table">
                                                     <thead>
@@ -119,9 +119,9 @@
                                                         <th>ID</th>
                                                         <th>Item Price</th>
                                                         <th>Quantity</th>
-                                                        <th>Bill Id</th>
-                                                        <th>Client Id</th>
-                                                        <th>Product Id</th>
+                                                        <th>Bill ID</th>
+                                                        <th>Client ID</th>
+                                                        <th>Product ID</th>
                                                     </tr>
                                                     </thead>
                                                     <tbody>
@@ -207,5 +207,7 @@
             </div>
         </section>
         <!-- Page Section Content End -->
+
     </main>
 {% endblock %}
+
