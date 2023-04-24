@@ -180,8 +180,51 @@ def ConfirmOrder(request):
 
 
 def dashboard(request):
-    client = Client.objects.filter(id=request.session['user']['id'])
+    client = Client.objects.get(id=request.session['user']['id'])
     bill = Bill.objects.all()
     billdetail = Billdetail.objects.all()
     return render(request, 'customer/dashboard.html', {'client': client, 'bill': bill, 'billdetail': billdetail})
 
+
+def billdetails(request, id):
+    detailObj = Billdetail.objects.filter(Bill_id=id)
+    return render(request, 'customer/billdetail.html', {'detailObj': detailObj})
+
+
+def updateprofile(request):
+    name = request.POST['name']
+    email = request.POST['email']
+    mobile = request.POST['mobile']
+    address = request.POST['address']
+
+    update = Client.objects.get(id=request.session['user']['id'])
+    update.name = name
+    update.email = email
+    update.mobile = mobile
+    update.address = address
+    update.save()
+
+    del request.session['user']
+    update = {
+        'id': update.id,
+        'name': update.name,
+        'email': email,
+        'address': update.address,
+        'mobile': update.mobile
+    }
+    request.session['user'] = update
+    return redirect('dashboard')
+
+
+def changeClientPassword(request):
+    op = request.POST['old-password']
+    np = request.POST['new-password']
+
+    clientObj = Client.objects.get(id=request.session['user']['id'])
+    if clientObj.password == op:
+        clientObj.password = np
+        clientObj.save()
+    else:
+        messages.warning(request, 'Unable to change password! Wrong Password submitted')
+
+    return redirect('dashboard')

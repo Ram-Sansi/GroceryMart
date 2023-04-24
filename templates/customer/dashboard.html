@@ -31,7 +31,8 @@
                                 <div class="row align-items-center no-gutters">
                                     <div class="col-lg-3 col-md-12">
                                         <div class="d-single-info">
-                                            <p class="user-name">Hello</p>
+                                            <p class="user-name">Hello : {{ client.email }}</p>
+
                                             <p>(not yourmail@info? <a href="#">Log Out</a>)</p>
                                         </div>
                                     </div>
@@ -61,8 +62,8 @@
                                         <li><a href="#dashboard" data-bs-toggle="tab"
                                                class="nav-link active">Dashboard</a></li>
                                         <li><a href="#orders" data-bs-toggle="tab" class="nav-link">Bills</a></li>
-                                        <li><a href="#downloads" data-bs-toggle="tab" class="nav-link">Bill Details</a>
-                                        </li>
+                                        {#                                        <li><a href="#downloads" data-bs-toggle="tab" class="nav-link">Bill Details</a>#}
+                                        {#                                        </li>#}
                                         <li><a href="#address" data-bs-toggle="tab" class="nav-link">Addresses</a></li>
                                         <li><a href="#account-details" data-bs-toggle="tab" class="nav-link">Account
                                             details</a></li>
@@ -80,7 +81,7 @@
                                                 details.</a></p>
                                         </div>
                                         <div class="tab-pane fade" id="orders">
-                                            <h3>Orders</h3>
+                                            <h3>Bills</h3>
                                             <div class="table-responsive">
                                                 <table class="table">
                                                     <thead>
@@ -91,7 +92,7 @@
                                                         <th>Bill Date</th>
                                                         <th>Bill Time</th>
                                                         <th>Payment Status</th>
-                                                        <th>Client ID</th>
+                                                        <th>Details</th>
                                                     </tr>
                                                     </thead>
                                                     <tbody>
@@ -102,16 +103,18 @@
                                                             <td>{{ i.totalitems }}</td>
                                                             <td>{{ i.billdate }}</td>
                                                             <td>{{ i.billtime }}</td>
-                                                            <td>{{ i.paymentstatus }}</td>
-                                                            <td>{{ i.Client_id }}</td>
+                                                            <td>{{ i.get_paymentstatus_display }}</td>
+                                                            <td><a href="/billdetails/{{ i.id }}"
+                                                                   class="btn btn-outline-success">View details</a></td>
                                                         </tr>
                                                     {% endfor %}
                                                     </tbody>
                                                 </table>
                                             </div>
                                         </div>
+                                        {% comment %}
                                         <div class="tab-pane fade" id="downloads">
-                                            <h3>Downloads</h3>
+                                            <h3>Bill Details</h3>
                                             <div class="table-responsive">
                                                 <table class="table">
                                                     <thead>
@@ -139,6 +142,7 @@
                                                 </table>
                                             </div>
                                         </div>
+{% endcomment %}
                                         <div class="tab-pane" id="address">
                                             <p>The following addresses will be used on the checkout page by default.</p>
                                             <h4 class="billing-address">Billing address</h4>
@@ -148,52 +152,100 @@
                                         </div>
                                         <div class="tab-pane fade" id="account-details">
                                             <h3>Account details </h3>
-                                            <div class="login">
-                                                <div class="login-form-container">
-                                                    <div class="account-login-form">
-                                                        <form action="#">
-                                                            <p>Already have an account? <a href="#">Log in instead!</a>
-                                                            </p>
-                                                            <label>Social title</label>
-                                                            <div class="input-radio">
-                                                                <span class="custom-radio"><input type="radio" value="1"
-                                                                                                  name="id_gender"> Mr.</span>
-                                                                <span class="custom-radio"><input type="radio" value="1"
-                                                                                                  name="id_gender"> Mrs.</span>
-                                                            </div>
-                                                            <div class="account-input-box">
-                                                                <label>First Name</label>
-                                                                <input type="text" name="first-name">
-                                                                <label>Last Name</label>
-                                                                <input type="text" name="last-name">
-                                                                <label>Email</label>
-                                                                <input type="text" name="email-name">
-                                                                <label>Password</label>
-                                                                <input type="password" name="user-password">
-                                                                <label>Birthdate</label>
-                                                                <input type="text" placeholder="MM/DD/YYYY" value=""
-                                                                       name="birthday">
-                                                            </div>
-                                                            <div class="example">
-                                                                (E.g.: 05/31/1970)
-                                                            </div>
-                                                            <div class="custom-checkbox">
-                                                                <input type="checkbox" value="1" name="optin">
-                                                                <label>Receive offers from our partners</label>
-                                                            </div>
-                                                            <div class="custom-checkbox">
-                                                                <input type="checkbox" value="1" name="newsletter">
-                                                                <label>Sign up for our newsletter<br><em>You may
-                                                                    unsubscribe at any moment. For that purpose, please
-                                                                    find our contact info in the legal
-                                                                    notice.</em></label>
-                                                            </div>
-                                                            <div class="button-box">
-                                                                <button class="btn default-btn btn btn--primary"
-                                                                        type="submit">Save
-                                                                </button>
+                                            <div class="col-lg-8">
+                                                <div class="dashboard_common_table">
+                                                    <h3>My Profile</h3>
+                                                    <div class="profile_update_form">
+                                                        <form action="/updateprofile" id="profile_form_area"
+                                                              method="post">
+                                                            {% csrf_token %}
+                                                            <div class="row">
+                                                                <div class="col-lg-12 my-2">
+                                                                    <div class="form-group">
+                                                                        <label for="name">Name</label>
+                                                                        <input type="text" class="form-control my-2"
+                                                                               name="name" id="name"
+                                                                               placeholder="Your Name"
+                                                                               value="{{ client.name }}">
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="col-lg-12 my-2">
+                                                                    <div class="form-group">
+                                                                        <label for="email">Email address</label>
+                                                                        <input type="text" class="form-control my-2"
+                                                                               id="email" name="email"
+                                                                               value="{{ client.email }}">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-12 my-2">
+                                                                    <div class="form-group">
+                                                                        <label for="mobile">Mobile number</label>
+                                                                        <input type="text" class="form-control my-2"
+                                                                               id="mobile" name="mobile"
+                                                                               value="{{ client.mobile }}">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-12 my-2">
+                                                                    <div class="form-group">
+                                                                        <label for="mobile">Address</label>
+                                                                        <input type="text" class="form-control my-2"
+                                                                               id="address" name="address"
+                                                                               value="{{ client.address }}">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-12 text-center my-2">
+                                                                    <div class="form-group">
+                                                                        <button type="submit"
+                                                                                class="btn btn-outline-success w-25 text-center">
+                                                                            Update Profile
+                                                                        </button>
+                                                                    </div>
+
+                                                                </div>
                                                             </div>
                                                         </form>
+
+                                                        <div class="row">
+                                                            <form action="/changeClientPassword" id="profile_form_area"
+                                                                  method="post">
+                                                                {% csrf_token %}
+
+                                                                <div class="change_password_input_boxed my-2">
+                                                                    <h3>Change password</h3>
+                                                                    <div class="row">
+                                                                        <div class="col-lg-6 my-2">
+                                                                            <label class="my-2" for="old-password">Old
+                                                                                Password</label>
+                                                                            <div class="form-group">
+                                                                                <input type="password" class="form-control" name="old-password" id="old-password"
+                                                                                       placeholder="* * * * * * * * * * * * * * *">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-6 my-2">
+                                                                            <label class="my-2" for="new-password">New
+                                                                                Password</label>
+
+                                                                            <div class="form-group">
+                                                                                <input type="password" class="form-control" name="new-password" id="new-password"
+                                                                                       placeholder="* * * * * * * * * * * * * * *">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-sm-12 text-center my-3">
+                                                                            <div class="form-group">
+                                                                                <button type="submit"
+                                                                                        class="btn btn-outline-success w-50 text-center">
+                                                                                    Update Password
+                                                                                </button>
+                                                                            </div>
+
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div>
+
+                                                            </form>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>

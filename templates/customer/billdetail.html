@@ -1,0 +1,137 @@
+{% extends 'customer/themelayout.html' %}
+
+{% load static %}
+{% block customercontent %}
+    <main>
+        <!-- Breadcrumb Start -->
+        <section class="breadcrumb-section-two">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="breadcrumb-content">
+                            <h2 class="visually-hidden">Cart Page</h2>
+                            <ul class="breadcrumb-page-list">
+                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="breadcrumb-item"><span class="active">Cart Page</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Breadcrumb End -->
+
+        <!-- Page Section Content Start -->
+        <section class="page-secton-wrapper section-space-ptb">
+            <div class="container">
+                <div class="col-sm-12">
+                    <div class="cart-page-total">
+                        <h2 class="fw-bold my-3">Billing Details</h2>
+                        <ul>
+                            <li style="font-size: x-large">Name: <span>{{ detailObj.0.Client.name }}</span></li>
+                            <li style="font-size: x-large">Date: <span>{{ detailObj.0.Bill.billdate }}</span></li>
+                            <li style="font-size: x-large">Time: <span>{{ detailObj.0.Bill.billtime }}</span></li>
+                            <li style="font-size: x-large">Items: <span>{{ detailObj.0.Bill.totalitems }}</span></li>
+                            <li style="font-size: x-large">Price: <span>{{ detailObj.0.Bill.totalprice }}</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="col-12 my-5">
+                        <div class="wishlist-tiel">
+                            <h2 class="mb-5 fw-bold">Bill Details Of Order #{{ detailObj.0.Bill_id }}</h2>
+                        </div>
+                        <form action="saveProductToCart" class="cart-table">
+                            <div class="table-content table-responsive">
+                                <table class="table border">
+                                    <thead>
+                                    <tr>
+
+                                        <th class="plantmore-product-thumbnail">Images</th>
+                                        <th class="cart-product-name">Product</th>
+                                        <th class="plantmore-product-price">Unit Price</th>
+                                        <th class="plantmore-product-quantity">Quantity</th>
+                                        <th class="plantmore-product-quantity">Total</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for i in detailObj %}
+                                        <tr>
+
+                                            <td><img src="/static/media/{{ i.Product.image }}" width="100"></td>
+                                            <td>{{ i.Product.name }}</td>
+                                            <td>{{ i.Product.price }}</td>
+                                            <td>
+                                                {{ i.quantity }}
+                                            </td>
+                                            <td>{{ i.itemprice }}</td>
+
+
+                                        </tr>
+                                    {% endfor %}
+
+
+                                    {% comment %}                                    <tr>
+                                                                            <td class="plantmore-product-remove"><a href="#"><i
+                                                                                    class="icon-rt-close-outline"></i></a></td>
+                                                                            <td class="plantmore-product-thumbnail"><a href="#"><img
+                                                                                    src="assets/images/products/cart/cart-2.jpg" alt=""></a></td>
+                                                                            <td class="plantmore-product-name"><a href="#">Vestibulum suscipit</a></td>
+                                                                            <td class="plantmore-product-price"><span class="amount">$60.50</span></td>
+                                                                            <td class="plantmore-product-quantity">
+                                                                                <div class="quantity">
+                                                                                    <div class="cart-plus-minus justify-content-center">
+                                                                                        <input class="cart-plus-minus-box" value="1" type="text">
+                                                                                    </div>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td class="product-subtotal"><span class="amount">$60.50</span></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td class="plantmore-product-remove"><a href="#"><i
+                                                                                    class="icon-rt-close-outline"></i></a></td>
+                                                                            <td class="plantmore-product-thumbnail"><a href="#"><img
+                                                                                    src="assets/images/products/cart/cart-3.jpg" alt=""></a></td>
+                                                                            <td class="plantmore-product-name"><a href="#">suscip dictum magna</a></td>
+                                                                            <td class="plantmore-product-price"><span class="amount">$40.50</span></td>
+                                                                            <td class="plantmore-product-quantity">
+                                                                                <div class="quantity">
+                                                                                    <div class="cart-plus-minus justify-content-center">
+                                                                                        <input class="cart-plus-minus-box" value="1" type="text">
+                                                                                    </div>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td class="product-subtotal"><span class="amount">$40.50</span></td>
+                                                                        </tr>{% endcomment %}
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="coupon-all mt-4">
+
+                                        <div class="coupon2">
+                                            {#                                            <input class="submit btn btn--primary" name="update_cart"#}
+                                            {#                                                   value="Update cart" type="submit">#}
+                                            <a href="{% url 'view' %}" class="btn btn--primary continue-btn ms-2">Continue
+                                                Shopping</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Page Section Content End -->
+
+
+    </main>
+
+{% endblock %}
+
+

@@ -92,37 +92,68 @@
         </div>
         <div class="header-bottom-area bg-secondary header-sticky">
             <div class="container">
-{#                <div class="row align-items-center">#}
-                    <div class="col-lg-12">
-                        <div class="main-menu-area white_text position-relative">
-                            <!--  Start Mainmenu Nav-->
-                            <nav class="main-navigation">
-                                <ul>
-                                    {% if request.session.merchant %}
-                                        <li class="active">
-                                            <a class="navbar-brand"
-                                               href="#">{{ request.session.user.name }}</a>
-                                        </li>
-                                    {% endif %}
-                                    <li class="active"><a href="{% url 'view' %}">Home Page</a></li>
-                                    <li><a href="/contact_us">Contact us</a></li>
-                                    <li><a href="/about_us">About us</a></li>
-                                    <li><a href="/user_login">My account</a></li>
-                                    {% if request.session.user %}
-                                        <li><a href="/dashboard">Dashboard</a></li>
-                                        <li class="nav-item position-absolute top-0 end-0">
-                                            <a class="nav-link active" href="{% url 'user_logout' %}">Log Out</a>
-                                        </li>
+                {#                <div class="row align-items-center">#}
+                <div class="col-lg-12">
+                    <div class="main-menu-area white_text position-relative">
+                        <!--  Start Mainmenu Nav-->
+                        <nav class="main-navigation">
+                            <ul>
+                                {% if request.session.merchant %}
+                                    <li class="active">
+                                        <a class="navbar-brand"
+                                           href="#">{{ request.session.user.name }}</a>
+                                    </li>
+                                {% endif %}
+                                <li class="active"><a href="{% url 'view' %}">Home Page</a></li>
+                                <li><a href="/contact_us">Contact us</a></li>
+                                <li><a href="/about_us">About us</a></li>
+                                <li><a href="/user_login">My account</a></li>
+                                {% if request.session.merchant %}
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownMenuLink"
+                                           role="button"
+                                           data-bs-toggle="dropdown" aria-expanded="false">
+                                            Products
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                            <li><a class="dropdown-item" href="{% url 'products' %}">Add Products</a>
+                                            </li>
+                                            <li><a class="dropdown-item" href="{% url 'viewproducts' %}">View
+                                                Products</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownMenuLink"
+                                           role="button"
+                                           data-bs-toggle="dropdown" aria-expanded="false">
+                                            Categories
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                            <li><a class="dropdown-item" href="{% url 'addcategory' %}">Add Category</a>
+                                            </li>
+                                            <li><a class="dropdown-item" href="{% url 'viewcategory' %}">View
+                                                Category</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item position-absolute top-0 end-0">
+                                        <a class="btn btn-danger" href="{% url 'merchant_logout' %}">Log Out</a>
+                                    </li>
+                                {% endif %}
+                                {% if request.session.user %}
+                                    <li><a href="/dashboard">Dashboard</a></li>
+                                    <li class="nav-item position-absolute top-0 end-0">
+                                        <a class="nav-link active" href="{% url 'user_logout' %}">Log Out</a>
+                                    </li>
 
-                                    {% endif %}
-                                </ul>
-                            </nav>
+                                {% endif %}
+                            </ul>
+                        </nav>
 
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
 
@@ -949,7 +980,6 @@
 
 <!-- Activation JS -->
 <script src="{% static 'assets/js/active.js' %}"></script>
-
 </body>
 
 

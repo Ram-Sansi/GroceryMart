@@ -69,7 +69,7 @@
                             <ul class="product-categorie">
                                 {% for i in cat %}
                                     <li class="product-categorie-item"><a
-                                            href="viewProductByCategory/{{ i.id }}">{{ i.name }}</a></li>
+                                            href="/viewProductByCategory/{{ i.id }}">{{ i.name }}</a></li>
 
                                 {% endfor %}
 
@@ -257,7 +257,7 @@
                                     <!-- Single Item Start -->
                                     <div class="single-product-item">
                                         <div class="single-product-item-image">
-                                            <a href="productdetails/{{ i.id }}" class="prodcut-images">
+                                            <a href="/productdetails/{{ i.id }}" class="prodcut-images">
                                                 <img class="primary-image"
                                                      src="/static/media/{{ i.image }}" alt="">
 

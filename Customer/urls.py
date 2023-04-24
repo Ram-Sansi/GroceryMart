@@ -24,5 +24,8 @@ urlpatterns = [
     path("delete_cart/<int:id>", delete_cart, name='delete_cart'),
     path("ConfirmOrder", ConfirmOrder, name="ConfirmOrder"),
     path("dashboard", dashboard, name="dashboard"),
+    path("billdetails/<int:id>", billdetails, name="billdetails"),
+    path("updateprofile", updateprofile, name="updateprofile"),
+    path("changeClientPassword", changeClientPassword, name="changeClientPassword"),
 
 ]
