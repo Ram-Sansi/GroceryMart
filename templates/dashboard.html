@@ -1,0 +1,36 @@
+{% extends 'merchantlayout/layout.html' %}
+{% load static %}
+
+{% block customercontent %}
+    <div class="container my-4">
+        <h2 class="text-center">View Purchased Products</h2>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Image</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            {% for i in detailObj %}
+
+                <tr>
+                    <td>{{ i.Product.name }}</td>
+                    <td>{{ i.quantity }}</td>
+                    <td>{{ i.itemprice }}</td>
+                    <td>{{ i.Bill.billdate }}</td>
+                    <td>{{ i.Bill.billtime }}</td>
+                    <td><img src="/static/media/{{ i.Product.image }}" alt="" width="70"></td>
+                </tr>
+            {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+    <div></div>
+{% endblock %}

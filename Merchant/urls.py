@@ -7,6 +7,11 @@ urlpatterns = [
     path("register_merchant", register_merchant, name="register_merchant"),
     path("login", login, name="login"),
     path("merchant_logout", merchant_logout, name='merchant_logout'),
+    path("contact_us", contact_us, name='contact_us'),
+    path("about_us", about_us, name='about_us'),
+    path("profile", profile, name='profile'),
+    path("changeMerchantPassword", changeMerchantPassword, name='changeMerchantPassword'),
+    path("updateprofile", updateprofile, name='updateprofile'),
 
     # category url
     path("addcategory", category.as_view(), name="addcategory"),
@@ -19,5 +24,7 @@ urlpatterns = [
     path("update_product/<int:prodid>", update_product, name='update_product'),
     path("delete_product/<int:id>", delete_product, name='delete_product'),
     path("saveupdate/<int:id>", saveupdate, name='saveupdate'),
+    path("saveupdate/<int:id>", saveupdate, name='saveupdate'),
+    path("userproduct", userproduct, name='userproduct'),
 
 ]

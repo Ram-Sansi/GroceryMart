@@ -1,0 +1,74 @@
+{% extends 'merchantlayout/layout.html' %}
+{% load static %}
+
+{% block customercontent %}
+    <div class="row">
+        <h1 class="text-center text-success my-3">Update Merchant Profile</h1>
+        <div class="col-sm-5 offset-1">
+            <h3 class="text-center text-success mb-2">My Profile</h3>
+            <form action="updateprofile" id="profile_form_area" method="post">
+                {% csrf_token %}
+                <div>
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control my-2" id="name" name="name" value="{{ profile.name }}">
+                </div>
+
+                <div>
+                    <label for="email">Email address</label>
+                    <input type="text" class="form-control my-2" id="email" name="email" value="{{ profile.email }}">
+                </div>
+                <div>
+                    <label for="mobile">Mobile number</label>
+                    <input type="text" class="form-control my-2" id="mobile" name="mobile"
+                           value="{{ profile.mobile }}">
+                </div>
+                <div>
+                    <label for="shop_name">Shop Name</label>
+                    <input type="text" class="form-control my-2" id="shop_name" name="shop_name"
+                           value="{{ profile.shop_name }}">
+                </div>
+                <div>
+                    <label for="address">Address</label>
+                    <textarea class="form-control" name="address" id="address" cols="30"
+                              rows="3"> {{ profile.address }}</textarea>
+                </div>
+                <div>
+                    <label for="city">City</label>
+                    <input type="text" class="form-control my-2" id="city" name="city"
+                           value="{{ profile.city }}">
+                </div>
+                <div class="text-center">
+                    <input type="submit" value="Submit" class="btn btn-outline-success w-25 my-2">
+
+                </div>
+
+
+            </form>
+        </div>
+
+
+        <div class="col-sm-5">
+            <form action="changeMerchantPassword" id="profile_form_area"
+                  method="post">
+                {% csrf_token %}
+                <h3 class="text-center text-success">Change password</h3>
+                <div>
+                    <label class="my-2" for="old-password">OLD PASSWORD</label>
+
+                    <input type="password" class="form-control" name="old-password" id="old-password"
+                           placeholder="* * * * * * * * * * * * * * *">
+                </div>
+                <div>
+                    <label class="my-2" for="new-password">NEW PASSWORD</label>
+                    <input type="password" class="form-control" name="new-password" id="new-password"
+                           placeholder="* * * * * * * * * * * * * * *">
+                </div>
+
+                <div class="text-center">
+                    <input type="submit" value="Submit" class="btn btn-outline-success w-25 my-2">
+                </div>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

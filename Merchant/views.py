@@ -3,6 +3,8 @@ from django.shortcuts import *
 from django.views import View
 from .models import *
 from .forms import *
+from Customer.models import *
+from Merchant.models import *
 
 
 # Create your views here.
@@ -42,13 +44,71 @@ def login(request):
             'mobile': merch_login[0].mobile
         }
         request.session['merchant'] = merchant
-    return redirect('merchant_login')
+    return redirect('viewproducts')
 
 
 def merchant_logout(request):
     del request.session['merchant']
     messages.success(request, 'Merchant has been logged out')
     return redirect('merchant_login')
+
+
+def about_us(request):
+    return render(request, 'about_us.html')
+
+
+def contact_us(request):
+    return render(request, 'contact_us.html')
+
+
+def profile(request):
+    profile = Merchant.objects.get(id=request.session['merchant']['id'])
+    return render(request, 'updateprofile.html', {'profile': profile})
+
+
+def updateprofile(request):
+    name = request.POST['name']
+    email = request.POST['email']
+    mobile = request.POST['mobile']
+    shop_name = request.POST['shop_name']
+    address = request.POST['address']
+    city = request.POST['city']
+
+    update = Merchant.objects.get(id=request.session['merchant']['id'])
+    update.name = name
+    update.email = email
+    update.mobile = mobile
+    update.shop_name = shop_name
+    update.address = address
+    update.city = city
+
+    update.save()
+
+    del request.session['merchant']
+    update = {
+        'name': update.name,
+        'email': email,
+        'address': update.address,
+        'shop_name': update.shop_name,
+        'mobile': update.mobile,
+        'city': update.city
+    }
+    request.session['merchant'] = update
+    return redirect('updateprofile')
+
+
+def changeMerchantPassword(request):
+    op = request.POST['old-password']
+    np = request.POST['new-password']
+
+    merchantObj = Merchant.objects.get(id=request.session['merchant']['id'])
+    if merchantObj.password == op:
+        merchantObj.password = np
+        merchantObj.save()
+    else:
+        messages.warning(request, 'Unable to change password! Wrong Password submitted')
+
+    return redirect('updateprofile')
 
 
 class category(View):
@@ -136,3 +196,10 @@ def delete_product(request, id):
     prod = Products.objects.get(id=id)
     prod.delete()
     return redirect('viewproducts')
+
+
+def userproduct(request):
+    detailObj = Billdetail.objects.filter(Product__Merchant_id=request.session['merchant']['id'])
+    # return HttpResponse(detailObj)
+
+    return render(request, 'dashboard.html', {'detailObj': detailObj})

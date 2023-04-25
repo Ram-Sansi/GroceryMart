@@ -75,7 +75,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-3">
                         <div class="logo">
-                            <a href="#"><img src="{% static 'assets/images/logo.jpeg' %}" alt=""></a>
+                            <a href="#"><img src="{% static 'assets/images/logo.jpg' %}" alt=""></a>
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -101,24 +101,27 @@
                                 {% if request.session.merchant %}
                                     <li class="active">
                                         <a class="navbar-brand"
-                                           href="#">{{ request.session.user.name }}</a>
+                                           href="#">{{ request.session.merchant.name }}</a>
                                     </li>
                                 {% endif %}
-                                <li class="active"><a href="{% url 'view' %}">Home Page</a></li>
-                                <li><a href="/contact_us">Contact us</a></li>
-                                <li><a href="/about_us">About us</a></li>
-                                <li><a href="/user_login">My account</a></li>
+                                <li class="active"><a href="{% url 'merchant_login' %}">Login</a></li>
+                                <li class="active"><a href="{% url 'viewproducts' %}">Home Page</a></li>
+
+                                <li><a href="contact_us">Contact us</a></li>
+                                <li><a href="about_us">About us</a></li>
+                                {#                                <li><a href="/user_login">My account</a></li>#}
                                 {% if request.session.merchant %}
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownMenuLink"
+                                    <li class=" active">
+                                        <a class=" dropdown-toggle active" href="#" id="navbarDropdownMenuLink"
                                            role="button"
                                            data-bs-toggle="dropdown" aria-expanded="false">
                                             Products
                                         </a>
                                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                            <li><a class="dropdown-item" href="{% url 'products' %}">Add Products</a>
+                                            <li><a class="dropdown-item text-dark" href="{% url 'products' %}">Add
+                                                Products</a>
                                             </li>
-                                            <li><a class="dropdown-item" href="{% url 'viewproducts' %}">View
+                                            <li><a class="dropdown-item text-dark" href="{% url 'viewproducts' %}">View
                                                 Products</a></li>
                                         </ul>
                                     </li>
@@ -129,23 +132,20 @@
                                             Categories
                                         </a>
                                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                            <li><a class="dropdown-item" href="{% url 'addcategory' %}">Add Category</a>
+                                            <li><a class="dropdown-item text-dark " href="{% url 'addcategory' %}">Add
+                                                Category</a>
                                             </li>
-                                            <li><a class="dropdown-item" href="{% url 'viewcategory' %}">View
+                                            <li><a class="dropdown-item text-dark " href="{% url 'viewcategory' %}">View
                                                 Category</a></li>
                                         </ul>
                                     </li>
+                                    <li><a class="dropdown-item" href="{% url 'userproduct' %}">Items Sold</a>
+                                    </li>
                                     <li class="nav-item position-absolute top-0 end-0">
-                                        <a class="btn btn-danger" href="{% url 'merchant_logout' %}">Log Out</a>
+                                        <a class="" href="{% url 'merchant_logout' %}">Log Out</a>
                                     </li>
                                 {% endif %}
-                                {% if request.session.user %}
-                                    <li><a href="/dashboard">Dashboard</a></li>
-                                    <li class="nav-item position-absolute top-0 end-0">
-                                        <a class="nav-link active" href="{% url 'user_logout' %}">Log Out</a>
-                                    </li>
 
-                                {% endif %}
                             </ul>
                         </nav>
 
@@ -623,7 +623,7 @@
                 <div class="col-lg-3 col-md-3 col-sm-6">
                     <div class="footer-widget">
                         <div class="footer-logo">
-                            <a href="#"><img src="{% static 'assets/images/logo.jpeg' %}" alt=""></a>
+                            <a href="#"><img src="{% static 'assets/images/logo.jpg' %}" alt=""></a>
                         </div>
                         <ul class="footer-social-list">
                             <li>
@@ -686,7 +686,7 @@
     <div class="footer-bottom">
         <div class="container">
             <div class="copy-right-content">
-                <p>Copyright © <a href="https://hasthemes.com/">HasThemes</a>. All Rights Reserved.</p>
+                <p>Copyright © Grocery Mart. All Rights Reserved.</p>
                 <div class="payment-image">
                     <img src="{% static 'assets/images/others/payment.png' %}" alt="">
                 </div>
